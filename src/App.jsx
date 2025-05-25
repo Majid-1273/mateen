@@ -6,7 +6,6 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Error from "./pages/Error";
 import Services from "./pages/Services";
-import Collections from "./pages/Collections";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 
@@ -20,7 +19,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/collections" element={<Collections />} />
         <Route path="*" element={<Error />} />
       </Routes>
     <Footer/>
