@@ -206,7 +206,6 @@ export default function Newsletter() {
             </svg>
             <span>
               Your privacy is our priority. Unsubscribe anytime. 
-              <a href="#" className="underline hover:text-white transition-colors">Privacy Policy</a>
             </span>
           </div>
         </div>
