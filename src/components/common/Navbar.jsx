@@ -66,8 +66,8 @@ export default function Navbar() {
               Services
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/blog" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
-              Blog
+            <Link to="/collections" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
+              Collections
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link to="/contact" className="px-6 py-2 font-medium text-white bg-gradient-to-r from-green-800 to-red-700 rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
@@ -121,8 +121,8 @@ export default function Navbar() {
             <Link to="/services" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Services
             </Link>
-            <Link to="/blog" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
-              Blog
+            <Link to="/collections" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+              Collections
             </Link>
             <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Contact

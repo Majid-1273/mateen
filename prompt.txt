@@ -1,2 +1,0 @@
-i want it to have like if a screen is 1000pixels high in y axis and the navbar is always taking 80px the footer should be of height 980px but it should be responsive so you handle it i just explained what you needed to do
-

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Send, Loader2, MapPin, Clock, Phone, Mail } from "lucide-react";
+import { Send, Loader2, MapPin, Clock, Phone, Mail, MessageSquare } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,7 +14,6 @@ export default function ContactForm() {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
-    // Simulating AOS functionality with CSS animations
     const elements = document.querySelectorAll('[data-aos]');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -56,336 +55,362 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full" style={{
-      height: '100vh',
-      maxHeight: '100vh',
-      overflow: 'hidden'
-    }}>
+    <div className="w-full" >
       <style jsx>{`
         [data-aos="fade-right"] {
           opacity: 0;
-          transform: translateX(-50px);
-          transition: all 0.8s ease-in-out;
+          transform: translateX(-30px);
+          transition: all 0.6s ease-out;
         }
         [data-aos="fade-left"] {
           opacity: 0;
-          transform: translateX(50px);
-          transition: all 0.8s ease-in-out;
+          transform: translateX(30px);
+          transition: all 0.6s ease-out;
         }
         [data-aos="fade-up"] {
           opacity: 0;
-          transform: translateY(50px);
-          transition: all 0.8s ease-in-out;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
         }
         .aos-animate {
           opacity: 1 !important;
           transform: translate(0) !important;
         }
-        .gradient-bg {
+        .contact-container {
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          position: relative;
+          overflow: hidden;
+        }
+        .contact-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 25% 25%, rgba(139, 38, 53, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(45, 80, 22, 0.03) 0%, transparent 50%);
+          pointer-events: none;
+        }
+        .form-card {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .info-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(139, 38, 53, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .input-field {
+          transition: all 0.3s ease;
+          border: 2px solid #e2e8f0;
+        }
+        .input-field:focus {
+          border-color: #2D5016;
+          box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+          outline: none;
+        }
+        .btn-primary {
           background: linear-gradient(135deg, #8B2635 0%, #2D5016 100%);
+          transition: all 0.3s ease;
         }
-        .pattern-overlay {
-          background-image: 
-            radial-gradient(circle at 20% 80%, rgba(139, 38, 53, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(45, 80, 22, 0.1) 0%, transparent 50%);
+        .btn-primary:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 15px 30px rgba(139, 38, 53, 0.3);
         }
-        .textile-pattern {
-          background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop&crop=center');
-          background-size: cover;
-          background-position: center;
+        .btn-primary:disabled {
+          background: #9ca3af;
+          cursor: not-allowed;
         }
         .hover-lift {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-lift:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 15px 30px rgba(139, 38, 53, 0.2);
+          transform: translateY(-4px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
-        .form-input:focus {
-          border-color: #2D5016 !important;
-          box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+        .contact-info-item {
+          transition: all 0.3s ease;
         }
-        .social-icon {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .social-icon:hover {
-          transform: translateY(-2px) scale(1.1);
+        .contact-info-item:hover {
+          transform: translateX(8px);
+          color: #2D5016;
         }
       `}</style>
 
-      <section className="relative h-full" style={{ 
-        background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
-        height: 'calc(100vh - 80px)'
-      }}>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 pattern-overlay opacity-50"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex flex-col">
-          {/* Header - Reduced size */}
-          <div className="text-center mb-3 sm:mb-4" data-aos="fade-up">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1 sm:mb-2" style={{ color: '#8B2635' }}>
-              Get in Touch
-            </h1>
-            <p className="text-xs sm:text-sm lg:text-base text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
-              Connect with us across continents - from Pakistan's traditional craftsmanship to England's modern elegance
-            </p>
-          </div>
-
-          {/* Main Content Grid - Flex grow to use remaining space */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 flex-1 min-h-0">
-            {/* Contact Form */}
-            <div data-aos="fade-right" className="order-2 xl:order-1 flex flex-col">
-              <div className="bg-white rounded-lg lg:rounded-xl p-3 sm:p-4 shadow-2xl border-l-4 hover-lift flex-1 flex flex-col" style={{ borderLeftColor: '#8B2635' }}>
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <div className="p-1.5 rounded-full mr-2" style={{ backgroundColor: '#2D5016' }}>
-                    <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
-                  </div>
-                  <h2 className="text-base sm:text-lg lg:text-xl font-bold" style={{ color: '#8B2635' }}>
-                    Send Us a Message
-                  </h2>
-                </div>
-                
-                {formSubmitted && (
-                  <div className="border-l-4 p-2 mb-2 rounded-r-lg" style={{ borderLeftColor: '#2D5016', backgroundColor: '#f0f8f0' }}>
-                    <p style={{ color: '#2D5016' }} className="font-semibold text-xs">
-                      ✓ Thank you for your message! Our team will get back to you soon.
-                    </p>
-                  </div>
-                )}
-                
-                <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
-                  <div className="space-y-2 sm:space-y-3 flex-1">
-                    {/* Name and Email Row */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                      <div>
-                        <label htmlFor="name" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all text-xs"
-                          placeholder="Enter your full name"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all text-xs"
-                          placeholder="your.email@example.com"
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Phone and Subject Row */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                      <div>
-                        <label htmlFor="phone" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all text-xs"
-                          placeholder="+44 or +92..."
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="subject" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                          Subject *
-                        </label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          required
-                          className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all text-xs"
-                          placeholder="How can we help?"
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Location Preference */}
-                    <div>
-                      <label htmlFor="preferredLocation" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                        Preferred Office Location
-                      </label>
-                      <select
-                        id="preferredLocation"
-                        name="preferredLocation"
-                        value={formData.preferredLocation}
-                        onChange={handleChange}
-                        className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all text-xs bg-white"
-                      >
-                        <option value="any">No preference</option>
-                        <option value="london">🇬🇧 London Office</option>
-                        <option value="lahore">🇵🇰 Lahore Workshop</option>
-                      </select>
-                    </div>
-                    
-                    {/* Message */}
-                    <div className="flex-1 flex flex-col">
-                      <label htmlFor="message" className="block font-semibold mb-1 text-xs" style={{ color: '#8B2635' }}>
-                        Your Message *
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows="2"
-                        className="form-input w-full px-2 py-1.5 border-2 border-gray-200 rounded-lg focus:outline-none transition-all resize-none text-xs flex-1"
-                        placeholder="Please tell us how we can assist you..."
-                      ></textarea>
-                    </div>
-                  </div>
-                  
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-3 py-2 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center text-xs sm:text-sm hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:hover:shadow-none mt-2"
-                    style={{ 
-                      background: isSubmitting ? '#9ca3af' : 'linear-gradient(135deg, #8B2635 0%, #2D5016 100%)',
-                      cursor: isSubmitting ? 'not-allowed' : 'pointer'
-                    }}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="animate-spin mr-2 h-3 w-3" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-3 w-3" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
-            </div>
+      <div className="contact-container h-full flex flex-col">
+        <div className="flex-1 flex flex-col relative z-10">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col h-full">
             
-            {/* Contact Information */}
-            <div data-aos="fade-left" className="order-1 xl:order-2 flex flex-col">
-              <div className="gradient-bg rounded-lg lg:rounded-xl p-3 sm:p-4 shadow-2xl text-white hover-lift flex-1 flex flex-col">
-                <div className="flex items-center mb-2">
-                  <img 
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=60&h=60&fit=crop&crop=center" 
-                    alt="Contact" 
-                    className="h-6 w-6 sm:h-8 sm:w-8 rounded-full mr-2 border-2 border-white shadow-lg"
-                  />
-                  <h2 className="text-base sm:text-lg lg:text-xl font-bold">Contact Information</h2>
-                </div>
+            {/* Header */}
+            <div className="text-center py-6 sm:py-8 lg:py-12" data-aos="fade-up">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#8B2635' }}>
+                Get in Touch
+              </h1>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+                Connect with us across continents - from Pakistan's traditional craftsmanship to England's modern elegance
+              </p>
+            </div>
+
+            {/* Main Content */}
+            <div className="flex-1 pb-6 sm:pb-8">
+              <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 lg:gap-8 h-full">
                 
-                <p className="text-gray-100 mb-3 text-xs leading-relaxed">
-                  Bridging cultures through exceptional tailoring. Whether you're in Pakistan or England, 
-                  we're here to bring traditional craftsmanship to your modern lifestyle.
-                </p>
-
-                {/* Contact Details */}
-                <div className="space-y-2 mb-3 flex-1">
-                  {/* Locations */}
-                  <div className="flex items-start space-x-2">
-                    <div className="p-1.5 rounded-full bg-yellow-300 flex-shrink-0 mt-0.5">
-                      <MapPin className="h-2.5 w-2.5 text-gray-800" />
+                {/* Contact Form */}
+                <div data-aos="fade-right" className="xl:col-span-3">
+                  <div className="form-card rounded-2xl p-6 sm:p-8 lg:p-10 h-full hover-lift border-l-4" style={{ borderLeftColor: '#8B2635' }}>
+                    <div className="flex items-center mb-6">
+                      <div className="p-3 rounded-full mr-4" style={{ backgroundColor: '#2D5016' }}>
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-bold" style={{ color: '#8B2635' }}>
+                        Send Us a Message
+                      </h2>
                     </div>
-                    <div className="flex-grow">
-                      <h3 className="text-xs font-bold text-yellow-300 mb-1">Our Locations</h3>
-                      <div className="space-y-1">
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="font-bold text-xs mb-0.5">🇬🇧 London Office</p>
-                          <p className="text-gray-200 text-xs">123 Savile Row, London W1S 3PB</p>
+                    
+                    {formSubmitted && (
+                      <div className="border-l-4 p-4 mb-6 rounded-r-lg" style={{ borderLeftColor: '#2D5016', backgroundColor: '#f0f8f0' }}>
+                        <p style={{ color: '#2D5016' }} className="font-semibold flex items-center">
+                          <MessageSquare className="h-5 w-5 mr-2" />
+                          Thank you for your message! Our team will get back to you soon.
+                        </p>
+                      </div>
+                    )}
+                    
+                    <div className="space-y-6">
+                      {/* Name and Email */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                          <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="input-field w-full px-4 py-3 rounded-lg text-sm sm:text-base"
+                            placeholder="Enter your full name"
+                          />
                         </div>
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="font-bold text-xs mb-0.5">🇵🇰 Lahore Workshop</p>
-                          <p className="text-gray-200 text-xs">45 MM Alam Road, Gulberg III, Lahore</p>
+                        <div>
+                          <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="input-field w-full px-4 py-3 rounded-lg text-sm sm:text-base"
+                            placeholder="your.email@example.com"
+                          />
                         </div>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Business Hours */}
-                  <div className="flex items-start space-x-2">
-                    <div className="p-1.5 rounded-full bg-yellow-300 flex-shrink-0 mt-0.5">
-                      <Clock className="h-2.5 w-2.5 text-gray-800" />
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-xs font-bold text-yellow-300 mb-1">Business Hours</h3>
-                      <div className="space-y-1">
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="font-bold text-xs">London: Mon-Fri 9am-6pm</p>
+                      
+                      {/* Phone and Subject */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                          <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="input-field w-full px-4 py-3 rounded-lg text-sm sm:text-base"
+                            placeholder="+44 or +92..."
+                          />
                         </div>
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="font-bold text-xs">Lahore: Mon-Sat 9am-5pm</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Phone Numbers */}
-                  <div className="flex items-start space-x-2">
-                    <div className="p-1.5 rounded-full bg-yellow-300 flex-shrink-0 mt-0.5">
-                      <Phone className="h-2.5 w-2.5 text-gray-800" />
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-xs font-bold text-yellow-300 mb-1">Phone Numbers</h3>
-                      <div className="space-y-1">
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="text-gray-200 text-xs font-medium">UK: +44 20 7123 4567</p>
-                        </div>
-                        <div className="bg-white/10 p-1.5 rounded backdrop-blur-sm">
-                          <p className="text-gray-200 text-xs font-medium">PK: +92 42 1234 5678</p>
+                        <div>
+                          <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                            Subject *
+                          </label>
+                          <input
+                            type="text"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
+                            className="input-field w-full px-4 py-3 rounded-lg text-sm sm:text-base"
+                            placeholder="How can we help?"
+                          />
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Social Media Section */}
-                <div className="mb-2">
-                  <h3 className="text-xs font-bold text-yellow-300 mb-1">Follow Our Journey</h3>
-                  <div className="flex flex-wrap gap-1">
-                    {[
-                      { name: "Twitter", color: "#1DA1F2" },
-                      { name: "Instagram", color: "#E4405F" },
-                      { name: "Facebook", color: "#1877F2" },
-                      { name: "LinkedIn", color: "#0A66C2" }
-                    ].map((social, index) => (
-                      <a 
-                        key={index}
-                        href="#" 
-                        className="social-icon bg-white/20 hover:bg-white/30 p-1.5 rounded-full transition-all duration-300 backdrop-blur-sm"
-                        style={{ '--hover-color': social.color }}
+                      
+                      {/* Location Preference */}
+                      <div>
+                        <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                          Preferred Office Location
+                        </label>
+                        <select
+                          name="preferredLocation"
+                          value={formData.preferredLocation}
+                          onChange={handleChange}
+                          className="input-field w-full px-4 py-3 rounded-lg text-sm sm:text-base bg-white"
+                        >
+                          <option value="any">No preference</option>
+                          <option value="london">🇬🇧 London Office</option>
+                          <option value="lahore">🇵🇰 Lahore Workshop</option>
+                        </select>
+                      </div>
+                      
+                      {/* Message */}
+                      <div>
+                        <label className="block font-semibold mb-2 text-sm sm:text-base" style={{ color: '#8B2635' }}>
+                          Your Message *
+                        </label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows="4"
+                          className="input-field w-full px-4 py-3 rounded-lg resize-none text-sm sm:text-base"
+                          placeholder="Please tell us how we can assist you..."
+                        ></textarea>
+                      </div>
+                      
+                      {/* Submit Button */}
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="btn-primary w-full px-6 py-4 text-white font-bold rounded-lg flex items-center justify-center text-sm sm:text-base"
                       >
-                        <div className="h-2.5 w-2.5 bg-white rounded-sm"></div>
-                      </a>
-                    ))}
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="animate-spin mr-3 h-5 w-5" />
+                            Sending Message...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="mr-3 h-5 w-5" />
+                            Send Your Message
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contact Information Sidebar */}
+                <div data-aos="fade-left" className="xl:col-span-2">
+                  <div className="info-card rounded-2xl p-6 sm:p-8 h-full hover-lift">
+                    <div className="flex items-center mb-6">
+                      <div className="p-3 rounded-full mr-4" style={{ backgroundColor: '#8B2635' }}>
+                        <MapPin className="h-6 w-6 text-white" />
+                      </div>
+                      <h2 className="text-xl sm:text-2xl font-bold" style={{ color: '#8B2635' }}>
+                        Contact Information
+                      </h2>
+                    </div>
+
+                    <div className="space-y-8">
+                      {/* London Office */}
+                      <div className="border-l-4 pl-6" style={{ borderLeftColor: '#8B2635' }}>
+                        <h3 className="text-lg font-bold mb-4 flex items-center" style={{ color: '#8B2635' }}>
+                          🇬🇧 London Office
+                        </h3>
+                        <div className="space-y-3">
+                          <div className="contact-info-item flex items-start">
+                            <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" style={{ color: '#2D5016' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Address</p>
+                              <p className="text-gray-600 text-sm">
+                                123 Fashion District<br />
+                                London W1F 8AB<br />
+                                United Kingdom
+                              </p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <Phone className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#2D5016' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Phone</p>
+                              <p className="text-gray-600 text-sm">+44 20 7123 4567</p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <Clock className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#2D5016' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Hours</p>
+                              <p className="text-gray-600 text-sm">Mon-Fri: 9:00-18:00 GMT</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Lahore Workshop */}
+                      <div className="border-l-4 pl-6" style={{ borderLeftColor: '#2D5016' }}>
+                        <h3 className="text-lg font-bold mb-4 flex items-center" style={{ color: '#2D5016' }}>
+                          🇵🇰 Lahore Workshop
+                        </h3>
+                        <div className="space-y-3">
+                          <div className="contact-info-item flex items-start">
+                            <MapPin className="h-5 w-5 mr-3 mt-1 flex-shrink-0" style={{ color: '#8B2635' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Address</p>
+                              <p className="text-gray-600 text-sm">
+                                Crafts Quarter, Liberty Market<br />
+                                Gulberg III, Lahore<br />
+                                Punjab, Pakistan
+                              </p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <Phone className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#8B2635' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Phone</p>
+                              <p className="text-gray-600 text-sm">+92 42 3587 1234</p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <Clock className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#8B2635' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Hours</p>
+                              <p className="text-gray-600 text-sm">Mon-Sat: 10:00-19:00 PKT</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* General Contact */}
+                      <div className="border-l-4 pl-6" style={{ borderLeftColor: '#8B2635' }}>
+                        <h3 className="text-lg font-bold mb-4" style={{ color: '#8B2635' }}>
+                          General Inquiries
+                        </h3>
+                        <div className="space-y-3">
+                          <div className="contact-info-item flex items-center">
+                            <Mail className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#2D5016' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Email</p>
+                              <p className="text-gray-600 text-sm">info@yourcompany.com</p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <MessageSquare className="h-5 w-5 mr-3 flex-shrink-0" style={{ color: '#2D5016' }} />
+                            <div>
+                              <p className="font-medium text-gray-800">Response Time</p>
+                              <p className="text-gray-600 text-sm">Within 24 hours</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,64 +1,70 @@
 import { useState, useEffect } from "react";
-import { FaArrowRight } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { ChevronRight, ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Collections() {
-  const [activeCollection, setActiveCollection] = useState("english-elegance");
-  
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-    });
-    AOS.refresh();
-  }, [activeCollection]);
+  const [activeCollection, setActiveCollection] = useState("fashion-apparel");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   const collections = {
-    "english-elegance": {
-      title: "English Elegance",
-      description: "Timeless British craftsmanship meets modern sophistication. Classic tailoring with contemporary flair.",
-      image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "fashion-apparel": {
+      title: "Fashion & Apparel",
+      description: "From formal wear to festive styles — discover Pakistan's finest stitched and unstitched clothing, tailored for every occasion.",
+      image: "https://images.unsplash.com/photo-1602810319252-6846b96b6b36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       items: [
         { 
-          name: "Savile Row Suit", 
-          image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          name: "Luxury Lawn Suit", 
+          image: "https://images.unsplash.com/photo-1622442002011-c8c6cb4b5b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
         },
         { 
-          name: "Tweed Blazer", 
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-        },
+          name: "Festive Bridal Wear", 
+          image: "https://images.unsplash.com/photo-1645027100841-11cc3e9db3e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+        }
       ]
     },
-    "pakistani-heritage": {
-      title: "Pakistani Heritage",
-      description: "Rich cultural traditions woven into contemporary designs. Vibrant colors and intricate craftsmanship.",
-      image: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "footwear": {
+      title: "Footwear",
+      description: "From traditional khussas to premium leather shoes — step into comfort and style rooted in Pakistani craftsmanship.",
+      image: "https://images.unsplash.com/photo-1628452380973-4f4d46a1f9e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       items: [
         { 
-          name: "Embroidered Sherwani", 
-          image: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          name: "Classic Khussa", 
+          image: "https://images.unsplash.com/photo-1601327710713-55fbbe32a3cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
         },
         { 
-          name: "Hand-stitched Kurta", 
-          image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-        },
+          name: "Leather Loafers", 
+          image: "https://images.unsplash.com/photo-1621408683474-5d91c32d929c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+        }
       ]
     },
-    "fusion-line": {
-      title: "Cross-Cultural Fusion",
-      description: "Where Pakistani artistry meets English sophistication. Innovation through cultural harmony.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "accessories": {
+      title: "Accessories",
+      description: "Complete your look with handcrafted Pakistani accessories — from shawls to bags and statement jewelry.",
+      image: "https://images.unsplash.com/photo-1610621182419-94b9958405df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       items: [
         { 
-          name: "Modern Nehru Jacket", 
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          name: "Pashmina Shawl", 
+          image: "https://images.unsplash.com/photo-1631037617444-72b97c3f4df7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
         },
         { 
-          name: "Embroidered Blazer", 
-          image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          name: "Embroidered Clutch", 
+          image: "https://images.unsplash.com/photo-1620912189861-0ee57c914cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+        }
+      ]
+    },
+    "home-living": {
+      title: "Home & Living",
+      description: "Bring Pakistani artistry into your space — explore textiles, décor, and handmade pieces for every corner of your home.",
+      image: "https://images.unsplash.com/photo-1625811381464-c19ecfdf3ab7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      items: [
+        { 
+          name: "Block Print Cushion", 
+          image: "https://images.unsplash.com/photo-1625811381464-c19ecfdf3ab7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
         },
+        { 
+          name: "Brass Wall Decor", 
+          image: "https://images.unsplash.com/photo-1605864671556-1ba1f8f8c9c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+        }
       ]
     }
   };
@@ -66,121 +72,137 @@ export default function Collections() {
   const activeData = collections[activeCollection];
 
   return (
-    <section className="min-h-[calc(100vh-80px)] py-16 bg-gradient-to-br from-gray-50 via-white to-green-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="text-center mb-12" data-aos="fade-up">
-          <div className="flex items-center justify-center mb-4">
-            <span className="text-2xl mr-2">🌙</span>
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-800 via-red-700 to-green-800 bg-clip-text text-transparent">
+    <section className="h-[calc(100vh-80px)] py-6 bg-gradient-to-br from-gray-50 via-white to-green-50/30 overflow-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col">
+        {/* Header */}
+        <div className="text-center mb-6 flex-shrink-0">
+          <div className="flex items-center justify-center mb-3">
+            <span className="text-xl sm:text-2xl mr-2">🌙</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 via-red-700 to-green-800 bg-clip-text text-transparent">
               Our Collections
             </h2>
-            <span className="text-2xl ml-2">👑</span>
+            <span className="text-xl sm:text-2xl ml-2">👑</span>
           </div>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-2 text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Discover the perfect blend of Pakistani heritage and English elegance in our curated collections.
           </p>
         </div>
         
-        {/* Collection tabs */}
-        <div className="flex flex-wrap justify-center mb-12 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-          {Object.keys(collections).map((key, index) => (
+        {/* Collection tabs - Custom dropdown on small screens, tabs on larger screens */}
+        <div className="mb-6 flex-shrink-0">
+          {/* Mobile custom dropdown */}
+          <div className="block sm:hidden relative">
             <button
-              key={key}
-              onClick={() => setActiveCollection(key)}
-              className={`px-8 py-6 text-lg font-semibold transition-all duration-300 relative group ${
-                activeCollection === key
-                  ? "text-white bg-gradient-to-r from-green-800 to-red-700 shadow-lg"
-                  : "text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-green-800"
-              }`}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full px-4 py-3 text-base font-semibold bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 shadow-lg flex items-center justify-between"
             >
-              {collections[key].title}
-              {activeCollection === key && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/50 to-white/20"></div>
-              )}
+              <span className="text-gray-800">{activeData.title}</span>
+              <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-          ))}
-        </div>
-        
-        {/* Active collection content */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 mb-12">
-          {/* Collection description */}
-          <div className="lg:w-1/3" data-aos="fade-right">
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-green-800 to-red-700 bg-clip-text text-transparent mb-6">
-                {activeData.title}
-              </h3>
-              <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                {activeData.description}
-              </p>
-              <a 
-                href={`/collections/${activeCollection}`}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-800 to-red-700 text-white font-semibold rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group"
-              >
-                View Full Collection 
-                <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
-            </div>
+            
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-10 overflow-hidden">
+                {Object.entries(collections).map(([key, collection]) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveCollection(key);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-4 py-3 text-left text-base font-medium transition-all duration-200 ${
+                      activeCollection === key
+                        ? "bg-gradient-to-r from-green-800 to-red-700 text-white"
+                        : "text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-green-800"
+                    }`}
+                  >
+                    {collection.title}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           
-          {/* Collection grid */}
-          <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {activeData.items.map((item, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-2xl shadow-xl border border-gray-100 bg-white transform hover:scale-105 transition-all duration-500"
-                data-aos="fade-up"
-                data-aos-delay={index * 100 + 200}
+          {/* Desktop tabs */}
+          <div className="hidden sm:flex flex-wrap justify-center bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            {Object.entries(collections).map(([key, collection]) => (
+              <button
+                key={key}
+                onClick={() => setActiveCollection(key)}
+                className={`flex-1 min-w-0 px-3 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 relative group ${
+                  activeCollection === key
+                    ? "text-white bg-gradient-to-r from-green-800 to-red-700 shadow-lg"
+                    : "text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-green-800"
+                }`}
               >
-                <div className="aspect-w-4 aspect-h-5 overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                    onError={(e) => {
-                      e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-                    }}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
-                  <div>
-                    <span className="text-white font-bold text-lg block">{item.name}</span>
-                    <span className="text-green-300 text-sm">Premium Collection</span>
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-green-800 to-red-700 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100">
-                  <FaArrowRight className="text-white text-sm" />
-                </div>
-              </div>
+                <span className="truncate">{collection.title}</span>
+                {activeCollection === key && (
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/50 to-white/20"></div>
+                )}
+              </button>
             ))}
           </div>
         </div>
         
-        {/* Featured collection banner */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl" data-aos="fade-up" data-aos-delay="400">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-800/90 via-red-700/80 to-green-800/90"></div>
-          <img 
-            src={activeData.image} 
-            alt={activeData.title}
-            className="w-full h-48 md:h-64 object-cover"
-            onError={(e) => {
-              e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80";
-            }}
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h3 className="text-2xl md:text-4xl font-bold mb-4">
-                Experience {activeData.title}
+        {/* Active collection content - Takes remaining space */}
+        <div className="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-8 flex-grow min-h-0">
+          {/* Collection description */}
+          <div className="lg:w-1/3 flex-shrink-0">
+            <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-gray-100 h-full flex flex-col">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-green-800 to-red-700 bg-clip-text text-transparent mb-3 sm:mb-4">
+                {activeData.title}
               </h3>
-              <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto px-4">
-                Crafted with passion, designed with purpose
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base flex-grow">
+                {activeData.description}
               </p>
-              <a 
-                href="/collection" 
-                className="inline-flex items-center px-8 py-4 bg-white text-green-800 font-bold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group"
+              <Link
+                to={`/collections/${activeCollection}`}
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-800 to-red-700 text-white text-sm sm:text-base font-semibold rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group self-start"
               >
-                Explore All Collections 
-                <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
+                <span className="mr-2">View Full Collection</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </div>
+          </div>
+          
+          {/* Collection grid */}
+          <div className="lg:w-2/3 flex-grow min-h-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full">
+              {activeData.items.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="group relative overflow-hidden rounded-2xl shadow-xl border border-gray-100 bg-white transform hover:scale-105 transition-all duration-500 min-h-0"
+                >
+                  <div className="h-full overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Mobile overlay - always visible */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:hidden">
+                    <span className="text-white font-bold text-sm block">{item.name}</span>
+                    <span className="text-green-300 text-xs">Premium Collection</span>
+                  </div>
+                  
+                  {/* Desktop overlay - hover only */}
+                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">
+                      <span className="text-white font-bold text-base lg:text-lg block">{item.name}</span>
+                      <span className="text-green-300 text-xs lg:text-sm">Premium Collection</span>
+                    </div>
+                  </div>
+                  
+                  {/* Arrow icon */}
+                  <Link to={`/collections/${activeCollection}`} className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-800 to-red-700 rounded-full flex items-center justify-center sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform sm:scale-0 sm:group-hover:scale-100">
+                    <ChevronRight className="text-white w-3 h-3 sm:w-4 sm:h-4" />
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </div>

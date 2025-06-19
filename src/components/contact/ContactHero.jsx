@@ -110,15 +110,9 @@ export default function ContactHero() {
             <div className="lg:w-1/2 space-y-6 lg:space-y-8" data-aos="fade-right">
               {/* Main heading */}
               <div className="text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start mb-3 lg:mb-4">
-                  <GiSewingNeedle className="h-6 w-6 lg:h-8 lg:w-8 mr-2 lg:mr-3" style={{ color: '#2D5016' }} />
-                  <span className="text-base lg:text-lg font-semibold" style={{ color: '#8B2635' }}>
-                    SAMUNDAR PAAR
-                  </span>
-                </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
-                  <span style={{ color: '#8B2635' }}>Get in</span>{' '}
-                  <span style={{ color: '#2D5016' }}>Touch</span>
+                  <span style={{ color: '#8B2635' }}>Contact</span>{' '}
+                  <span style={{ color: '#2D5016' }}>Us</span>
                 </h1>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
                   Connecting cultures through exceptional tailoring. Whether you're interested in our 
