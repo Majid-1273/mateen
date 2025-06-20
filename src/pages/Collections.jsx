@@ -1,11 +1,18 @@
-import React from 'react'
+import HeroBanner from "../components/collections/HeroBanner"
+import Collection from "../components/collections/Collection"
+import ServicesSection from "../components/collections/ServicesSection"
+import AboutSection from "../components/collections/AboutSection"
 
+// Main App Component
 const Collections = () => {
   return (
-    <div className="mt-20">
-      Collections
+    <div className="font-sans">
+      <HeroBanner />
+      <Collection />
+      <ServicesSection />
+      <AboutSection />
     </div>
-  )
-}
+  );
+};
 
-export default Collections
+export default Collections;

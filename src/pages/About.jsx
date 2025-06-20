@@ -1,24 +1,23 @@
-import React from 'react'
-import AboutSection from '../components/about/AboutSection'
-import ContactCTA from '../components/about/ContactCTA'
-import HeroSection from '../components/about/HeroSection'
-import LocationsSection from '../components/about/LocationsSection'
-import StorySection from '../components/about/StorySection'
-import TeamSection from '../components/about/TeamSection'
-import ValuesSection from '../components/about/ValuesSection'
+import HeroSection from "../components/about/HeroSection"
+import ServicesSection from "../components/about/ServicesSection"
+import StorySection from "../components/about/StorySection"
+import ProcessSection from "../components/about/ProcessSection"
+import TestimonialsSection from "../components/about/TestimonialsSection"
+import CTASection from "../components/about/CTASection"
 
+
+// Main About Page Component
 const About = () => {
   return (
-    <>
+    <div className="min-h-screen">
       <HeroSection />
-      <AboutSection />
+      <ServicesSection />
       <StorySection />
-      <ValuesSection />
-      <TeamSection />
-      <LocationsSection />
-      <ContactCTA />
-    </>
-  )
-}
+      <ProcessSection />
+      <TestimonialsSection />
+      <CTASection />
+    </div>
+  );
+};
 
-export default About
+export default About;

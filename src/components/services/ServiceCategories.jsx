@@ -1,98 +1,172 @@
 import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import ServiceCard from "./ServiceCard";
+import { ShoppingBag, Video, Package, Globe, ExternalLink, Star, MapPin } from 'lucide-react';
 
 const ServiceCategories = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('fashion');
   const [visibleServices, setVisibleServices] = useState(6);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-out-cubic'
-    });
-  }, []);
 
   const services = [
     {
-      title: "British Tailoring",
-      description: "Premium British tailoring with attention to detail and precision cutting techniques. We specialize in bespoke suits, formal wear, and classic British fashion that meets the highest standards of Savile Row craftsmanship.",
-      icon: "🎩",
-      category: "tailoring",
-      image: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=600&h=400&fit=crop&crop=center",
-      country: "uk"
+      title: "Fashion & Apparel",
+      description: "Premium Pakistani fashion brands delivered worldwide. From traditional shalwar kameez to modern western wear, we connect you with Pakistan's finest clothing brands and help you shop remotely.",
+      icon: <ShoppingBag className="w-8 h-8" />,
+      category: "fashion",
+      image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop&crop=center",
+      brands: [
+        { name: "Khaadi", website: "https://www.khaadi.com", specialty: "Traditional & Contemporary" },
+        { name: "Sana Safinaz", website: "https://www.sanasafinaz.com", specialty: "Luxury Fashion" },
+        { name: "Maria B", website: "https://www.mariab.pk", specialty: "Designer Wear" },
+        { name: "Gul Ahmed", website: "https://www.gulahmad.com", specialty: "Premium Textiles" }
+      ]
     },
     {
-      title: "Pakistani Embroidery",
-      description: "Traditional Pakistani embroidery expertise featuring intricate patterns, vibrant colors, and handcrafted details that showcase the rich textile heritage of South Asia. From delicate thread work to stunning mirror embellishments.",
-      icon: "🧵",
-      category: "embroidery",
-      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&h=400&fit=crop&crop=center",
+      title: "Footwear",
+      description: "Authentic Pakistani footwear including traditional khussa, modern shoes, and leather goods. We source from renowned craftsmen and established brands across Pakistan.",
+      icon: "👠",
+      category: "footwear",
+      image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=400&fit=crop&crop=center",
       reverse: true,
-      country: "pk"
+      brands: [
+        { name: "Borjan", website: "https://www.borjan.com.pk", specialty: "Contemporary Footwear" },
+        { name: "Servis", website: "https://www.servis.com.pk", specialty: "Quality Shoes" },
+        { name: "Bata Pakistan", website: "https://www.bata.com.pk", specialty: "Everyday Footwear" },
+        { name: "Metro Shoes", website: "https://www.metro.pk", specialty: "Fashion Footwear" }
+      ]
     },
     {
-      title: "Custom Design Services",
-      description: "Collaborative design process where we bring your vision to life. Our team creates unique patterns and styles that blend cultural influences with modern fashion trends, ensuring each piece tells your story.",
-      icon: "✏️",
-      category: "design",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center",
-      country: "both"
+      title: "Accessories",
+      description: "Beautiful Pakistani accessories including jewelry, bags, scarves, and traditional ornaments. We help you discover unique pieces from local artisans and established brands.",
+      icon: "💎",
+      category: "accessories",
+      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop&crop=center",
+      brands: [
+        { name: "Tarz", website: "https://www.tarz.pk", specialty: "Fashion Accessories" },
+        { name: "Maheen Karim", website: "https://www.maheenkarim.com", specialty: "Luxury Jewelry" },
+        { name: "CrossStitch", website: "https://www.crossstitch.pk", specialty: "Bags & Accessories" },
+        { name: "Sapphire", website: "https://www.sapphireonline.pk", specialty: "Complete Lifestyle" }
+      ]
     },
     {
-      title: "Industrial Stitching",
-      description: "Large-scale production capabilities with state-of-the-art machinery and quality control processes to deliver consistent, high-quality results for bulk orders. Perfect for fashion brands and retailers.",
-      icon: "🏭",
-      category: "production",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&crop=center",
+      title: "Home & Living",
+      description: "Pakistani home decor, textiles, and lifestyle products. From handwoven carpets to modern furniture, we bring Pakistan's rich craftsmanship to your doorstep worldwide.",
+      icon: "🏠",
+      category: "home",
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center",
       reverse: true,
-      country: "pk"
-    },
-    {
-      title: "Export Services",
-      description: "End-to-end export solutions with logistics management, customs handling, and international shipping expertise to deliver your orders anywhere in the world. Seamless Pakistan to UK delivery guaranteed.",
-      icon: "🚢",
-      category: "logistics",
-      image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=400&fit=crop&crop=center",
-      country: "both"
-    },
-    {
-      title: "Quality Consulting",
-      description: "Expert consultation on textile sourcing, production optimization, and international market trends to help your business grow in the global fashion industry. Bridge Pakistani craftsmanship with British market demands.",
-      icon: "💼",
-      category: "consulting",
-      image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=600&h=400&fit=crop&crop=center",
-      reverse: true,
-      country: "both"
+      brands: [
+        { name: "Ideas by Gul Ahmed", website: "https://www.ideas.com.pk", specialty: "Home Textiles" },
+        { name: "Interwood", website: "https://www.interwood.pk", specialty: "Furniture & Decor" },
+        { name: "Habitt", website: "https://www.habitt.pk", specialty: "Modern Home Solutions" },
+        { name: "ChenOne", website: "https://www.chenone.com", specialty: "Home & Lifestyle" }
+      ]
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Services', icon: '🌟' },
-    { id: 'tailoring', name: 'Tailoring', icon: '🎩' },
-    { id: 'embroidery', name: 'Embroidery', icon: '🧵' },
-    { id: 'design', name: 'Design', icon: '✏️' },
-    { id: 'production', name: 'Production', icon: '🏭' },
-    { id: 'logistics', name: 'Logistics', icon: '🚢' },
-    { id: 'consulting', name: 'Consulting', icon: '💼' }
+    { id: 'fashion', name: 'Fashion & Apparel', icon: <ShoppingBag className="w-5 h-5" /> },
+    { id: 'footwear', name: 'Footwear', icon: '👠' },
+    { id: 'accessories', name: 'Accessories', icon: '💎' },
+    { id: 'home', name: 'Home & Living', icon: '🏠' }
   ];
 
-  const filteredServices = activeFilter === 'all' 
-    ? services 
-    : services.filter(service => service.category === activeFilter);
+  const filteredServices = services.filter(service => service.category === activeFilter);
 
-  const handleLoadMore = () => {
-    setVisibleServices(prev => prev + 3);
-  };
+  const ServiceCard = ({ title, description, icon, image, reverse, brands, category }) => (
+    <div 
+      className={`bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 ${
+        reverse ? 'lg:flex-row-reverse' : ''
+      }`}
+      data-aos="fade-up"
+    >
+      <div className={`flex flex-col lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+        {/* Image Section */}
+        <div className="lg:w-1/2 relative overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-64 lg:h-full object-cover transition-transform duration-700 hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+            {typeof icon === 'string' ? (
+              <span className="text-2xl">{icon}</span>
+            ) : (
+              <div className="text-green-600">{icon}</div>
+            )}
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="lg:w-1/2 p-8 flex flex-col justify-between">
+          <div>
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">{title}</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>
+            
+            {/* Service Features */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="flex items-center gap-2 text-sm text-green-600">
+                <Package className="w-4 h-4" />
+                <span>Door-to-door delivery</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-red-600">
+                <Video className="w-4 h-4" />
+                <span>Live shopping available</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-red-600">
+                <Globe className="w-4 h-4" />
+                <span>Worldwide shipping</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-red-600">
+                <Star className="w-4 h-4" />
+                <span>Quality guaranteed</span>
+              </div>
+            </div>
+
+            {/* Featured Brands */}
+            <div className="mb-6">
+              <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-green-600" />
+                Featured Pakistani Brands
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {brands.map((brand, idx) => (
+                  <a
+                    key={idx}
+                    href={brand.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors duration-200 group"
+                  >
+                    <div>
+                      <div className="font-medium text-gray-800 text-sm">{brand.name}</div>
+                      <div className="text-xs text-gray-500">{brand.specialty}</div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button className="flex-1 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+              <ShoppingBag className="w-4 h-4" />
+              Order Now
+            </button>
+            <button className="flex-1 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+              <Video className="w-4 h-4" />
+              Live Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div 
-      className="relative bg-gradient-to-br from-slate-50 via-white to-green-50 overflow-hidden"
-      style={{ height: 'calc(100vh - 80px)' }}
-    >
-      {/* Background Pattern - Simplified */}
+    <div className="relative bg-gradient-to-br from-slate-50 via-white to-green-50 overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 bg-green-600 rounded-full blur-3xl"></div>
         <div className="absolute top-20 right-20 w-36 h-36 bg-red-600 rounded-full blur-3xl"></div>
@@ -100,168 +174,105 @@ const ServiceCategories = () => {
         <div className="absolute bottom-10 right-10 w-24 h-24 bg-red-700 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 h-full flex flex-col py-8">
-        {/* Header Section - Compact */}
-        <div className="text-center mb-8">
-          <div 
-            className="inline-flex items-center gap-2 mb-4"
-            data-aos="fade-down"
-          >
+      <div className="container mx-auto px-4 relative z-10 h-full flex flex-col py-6">
+        {/* Header Section */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2 mb-4">
             <div className="w-12 h-1 bg-gradient-to-r from-green-600 to-red-600 rounded-full"></div>
-            <span className="text-sm font-semibold text-green-700 tracking-wider uppercase">Our Services</span>
+            <span className="text-sm font-semibold text-green-700 tracking-wider uppercase">Shop from Pakistan</span>
             <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-green-600 rounded-full"></div>
           </div>
           
-          <h2 
-            className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-700 via-slate-800 to-red-700 bg-clip-text text-transparent leading-tight"
-            data-aos="fade-up"
-          >
-            Specialized Services
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-700 via-slate-800 to-red-700 bg-clip-text text-transparent leading-tight">
+            International Shopping Services
             <br />
-            <span className="text-xl md:text-2xl">Bridging Two Nations</span>
+            <span className="text-lg md:text-xl">We Shop, You Receive Worldwide</span>
           </h2>
           
-          <p 
-            className="text-sm md:text-base max-w-3xl mx-auto text-slate-600 leading-relaxed mb-6"
-            data-aos="fade-up" 
-            data-aos-delay="200"
-          >
-            From <span className="font-semibold text-green-700">traditional Pakistani craftsmanship</span> to <span className="font-semibold text-red-700">British precision tailoring</span>, we offer comprehensive services that honor both cultures.
+          <p className="text-sm md:text-base max-w-4xl mx-auto text-slate-600 leading-relaxed mb-6">
+            Place your orders, and we'll shop from your favorite Pakistani brands on your behalf. 
+            From <span className="font-semibold text-green-700">traditional crafts</span> to <span className="font-semibold text-red-700">modern fashion</span>, 
+            we bring Pakistan's best products to your doorstep anywhere in the world.
           </p>
 
-          {/* Service Categories Filter - Compact */}
-          <div 
-            className="flex flex-wrap justify-center gap-2 mb-6"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            {categories.slice(0, 4).map((category) => (
+          {/* Service Categories Filter */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveFilter(category.id)}
-                className={`group flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`group flex items-center gap-2 px-4 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeFilter === category.id
-                    ? 'bg-gradient-to-r from-green-600 to-red-600 text-white shadow-lg'
-                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 hover:border-green-300'
+                    ? 'bg-gradient-to-r from-green-600 to-red-600 text-white shadow-lg transform scale-105'
+                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 hover:border-green-300 hover:shadow-md'
                 }`}
               >
-                <span className="text-sm">{category.icon}</span>
-                <span>{category.name}</span>
+                {typeof category.icon === 'string' ? (
+                  <span className="text-lg">{category.icon}</span>
+                ) : (
+                  category.icon
+                )}
+                <span className="text-sm font-semibold">{category.name}</span>
               </button>
             ))}
           </div>
 
-          {/* Stats Bar - Compact */}
-          <div 
-            className="flex flex-wrap justify-center gap-4 mb-6"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
+          {/* Key Benefits */}
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">{filteredServices.filter(s => s.country === 'pk' || s.country === 'both').length}</span>
-              </div>
-              <span className="text-xs font-medium text-green-700">Pakistani</span>
+              <Package className="w-5 h-5 text-green-600" />
+              <span className="text-sm font-medium text-green-700">We Buy For You</span>
             </div>
             
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">{filteredServices.filter(s => s.country === 'uk' || s.country === 'both').length}</span>
-              </div>
-              <span className="text-xs font-medium text-red-700">British</span>
+              <Video className="w-5 h-5 text-red-600" />
+              <span className="text-sm font-medium text-red-700">Live Shopping</span>
             </div>
 
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <div className="w-6 h-6 bg-gradient-to-r from-green-600 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">{filteredServices.length}</span>
-              </div>
-              <span className="text-xs font-medium text-slate-700">Total</span>
+              <Globe className="w-5 h-5 text-red-600" />
+              <span className="text-sm font-medium text-red-700">Global Delivery</span>
             </div>
           </div>
         </div>
 
         {/* Services Grid - Scrollable */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="space-y-8 max-w-6xl mx-auto pb-4">
-            {filteredServices.slice(0, visibleServices).map((service, index) => (
+          <div className="space-y-8 max-w-7xl mx-auto pb-4">
+            {filteredServices.map((service, index) => (
               <div key={index} className="relative">
-                {/* Service Number Badge - Smaller */}
-                <div 
-                  className="absolute -left-2 top-4 z-20 w-8 h-8 bg-gradient-to-br from-green-600 to-red-600 rounded-full flex items-center justify-center shadow-lg"
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 100}
-                >
-                  <span className="text-white font-bold text-xs">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-
                 <ServiceCard
                   title={service.title}
                   description={service.description}
                   icon={service.icon}
                   image={service.image}
                   reverse={service.reverse}
+                  brands={service.brands}
                   category={service.category}
                 />
-
-                {/* Country Flag Indicator - Smaller */}
-                <div className="absolute top-2 right-2 z-20">
-                  {service.country === 'pk' && (
-                    <div className="flex items-center gap-1 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-                      <span>🇵🇰</span> Pakistani
-                    </div>
-                  )}
-                  {service.country === 'uk' && (
-                    <div className="flex items-center gap-1 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-                      <span>🇬🇧</span> British
-                    </div>
-                  )}
-                  {service.country === 'both' && (
-                    <div className="flex items-center gap-1 bg-gradient-to-r from-green-600 to-red-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-                      <span>🌍</span> Cross-Cultural
-                    </div>
-                  )}
-                </div>
               </div>
             ))}
-
-            {/* Load More Button - Inline */}
-            {visibleServices < filteredServices.length && (
-              <div className="text-center pt-4">
-                <button
-                  onClick={handleLoadMore}
-                  className="group px-6 py-3 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
-                >
-                  <span className="flex items-center gap-2">
-                    Load More Services
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Bottom CTA Section - Compact */}
-        <div 
-          className="text-center mt-4"
-          data-aos="fade-up"
-          data-aos-delay="800"
-        >
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-green-100 max-w-3xl mx-auto">
-            <h3 className="text-lg font-bold mb-2 bg-gradient-to-r from-green-700 to-red-700 bg-clip-text text-transparent">
-              Ready to Bridge Traditions?
+        {/* Bottom CTA Section */}
+        <div className="text-center mt-6">
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-green-100 max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-green-700 to-red-700 bg-clip-text text-transparent">
+              Ready to Shop from Pakistan?
             </h3>
-            <p className="text-slate-600 mb-4 text-sm leading-relaxed">
-              Let us bring together the best of Pakistani craftsmanship and British precision for your next project.
+            <p className="text-slate-600 mb-4 leading-relaxed">
+              Tell us what you want, and we'll handle everything from shopping to shipping. 
+              Experience Pakistani brands like never before with our personal shopping service.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <button className="px-6 py-2 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm">
-                Start Your Project
+            <div className="flex flex-wrap justify-center gap-4">
+              <button className="px-8 py-3 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                <ShoppingBag className="w-5 h-5" />
+                Place Order
               </button>
-              <button className="px-6 py-2 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold rounded-lg transition-all duration-300 text-sm">
-                Schedule Consultation
+              <button className="px-8 py-3 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2">
+                <Video className="w-5 h-5" />
+                Book Live Shopping
               </button>
             </div>
           </div>

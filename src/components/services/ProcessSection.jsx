@@ -241,21 +241,6 @@ const ProcessSection = () => {
             transitionDelay: '800ms'
           }}
         >
-          <div className="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-full px-8 py-4 shadow-lg border border-green-100">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-4 bg-green-600 rounded-sm flex items-center justify-center">
-                <span className="text-white text-xs">🌙</span>
-              </div>
-              <span className="text-sm font-medium text-green-700">Made in Pakistan</span>
-            </div>
-            <div className="w-px h-6 bg-slate-300"></div>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-4 bg-red-600 rounded-sm flex items-center justify-center">
-                <span className="text-white text-xs">👑</span>
-              </div>
-              <span className="text-sm font-medium text-red-700">Delivered to England</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

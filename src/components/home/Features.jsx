@@ -137,7 +137,7 @@ export default function Features() {
                 Explore Our Story
               </Link>
               <Link to='/collections' className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-300 text-gray-700 font-bold rounded-full hover:border-green-800 hover:text-green-800 transition-all duration-300 hover:bg-green-50 text-sm sm:text-base">
-                View Collections
+               Shop Live with Us 
               </Link>
             </div>
           </div>

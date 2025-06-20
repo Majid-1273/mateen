@@ -79,7 +79,7 @@ export default function Collections() {
           <div className="flex items-center justify-center mb-3">
             <span className="text-xl sm:text-2xl mr-2">🌙</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-800 via-red-700 to-green-800 bg-clip-text text-transparent">
-              Our Collections
+              Our Services
             </h2>
             <span className="text-xl sm:text-2xl ml-2">👑</span>
           </div>
@@ -158,7 +158,7 @@ export default function Collections() {
                 to={`/collections/${activeCollection}`}
                 className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-800 to-red-700 text-white text-sm sm:text-base font-semibold rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group self-start"
               >
-                <span className="mr-2">View Full Collection</span>
+                <span className="mr-2">View Full Details</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
@@ -166,45 +166,27 @@ export default function Collections() {
           
           {/* Collection grid */}
           <div className="lg:w-2/3 flex-grow min-h-0">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full">
-              {activeData.items.map((item, index) => (
-                <div 
-                  key={index} 
-                  className="group relative overflow-hidden rounded-2xl shadow-xl border border-gray-100 bg-white transform hover:scale-105 transition-all duration-500 min-h-0"
-                >
-                  <div className="h-full overflow-hidden">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Mobile overlay - always visible */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:hidden">
-                    <span className="text-white font-bold text-sm block">{item.name}</span>
-                    <span className="text-green-300 text-xs">Premium Collection</span>
-                  </div>
-                  
-                  {/* Desktop overlay - hover only */}
-                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">
-                      <span className="text-white font-bold text-base lg:text-lg block">{item.name}</span>
-                      <span className="text-green-300 text-xs lg:text-sm">Premium Collection</span>
-                    </div>
-                  </div>
-                  
-                  {/* Arrow icon */}
-                  <Link to={`/collections/${activeCollection}`} className="absolute top-3 right-3 sm:top-4 sm:right-4 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-800 to-red-700 rounded-full flex items-center justify-center sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform sm:scale-0 sm:group-hover:scale-100">
-                    <ChevronRight className="text-white w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full">
+    {activeData.items.map((item, index) => (
+      <div 
+        key={index} 
+        className="group relative overflow-hidden rounded-2xl shadow-xl border border-gray-100 bg-white transform hover:scale-105 transition-all duration-500 min-h-0"
+      >
+        <div className="h-full overflow-hidden">
+          <img 
+            src={item.image} 
+            alt={item.name} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onError={(e) => {
+              e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </div>
     </section>

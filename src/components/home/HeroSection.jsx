@@ -99,32 +99,28 @@ export default function HeroSection() {
             </p>
 
             {/* Stats */}
-            <div className="flex items-center justify-center lg:justify-start space-x-3 xs:space-x-4 sm:space-x-6 mb-[2vh] xs:mb-[3vh] sm:mb-8">
-              <div className="flex items-center">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="w-[2.5vw] h-[2.5vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px]" />
-                  ))}
-                </div>
-                <span className="ml-2 text-[2.5vw] xs:text-sm sm:text-base text-gray-600">5.0 • 2000+ Reviews</span>
-              </div>
-            </div>
+{/* <div className="flex items-center justify-center lg:justify-start space-x-3 xs:space-x-4 sm:space-x-6 mb-[2vh] xs:mb-[3vh] sm:mb-8">
+  <div className="flex items-center">
+    <span className="ml-2 text-[2.8vw] xs:text-base sm:text-lg text-gray-800 font-semibold tracking-wide uppercase">
+      JO CHAHO WO MNGWAO
+    </span>
+  </div>
+</div> */}
+
             
             {/* CTA Buttons */}
             <div className="flex flex-row space-x-3 sm:space-x-4 w-full justify-center lg:justify-start">
+              
               <Link to='/collections'
-                onClick={() => {/* Add your navigation logic here, e.g., navigate('/collection') */}}
                 className="group px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-gradient-to-r from-green-800 to-red-700 text-white font-semibold rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap"
               >
-                View Collection
+                Buy For Me in Pakistan
                 <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300 w-[2vw] h-[2vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px]" />
               </Link>
-              <Link to='/about'
-                onClick={() => {/* Add your navigation logic here, e.g., navigate('/about') */}}
-                className="px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-300 hover:border-green-800 hover:text-green-800 hover:bg-green-50 transition-all duration-300 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap"
-              >
+              {/* <Link to='/about'
+                className="px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-300 hover:border-green-800 hover:text-green-800 hover:bg-green-50 transition-all duration-300 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap">
                 Our Heritage Story
-              </Link>
+              </Link> */}
             </div>
           </div>
 

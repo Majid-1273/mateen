@@ -16,10 +16,10 @@ const Services = () => {
       <ServiceCategories />
       
       {/* Individual Service Cards */}
-      <ServiceCard />
+      {/* <ServiceCard /> */}
       
       {/* Process Section */}
-      <ProcessSection />
+      {/* <ProcessSection /> */}
     </div>
   );
 };
