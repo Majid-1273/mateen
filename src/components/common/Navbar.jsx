@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className="flex items-center" data-aos="fade-right">
             <Link to="/" className="flex-shrink-0 flex items-center group">
               <div className="relative h-18 w-18 mr-3">
-                <div className="absolute inset-0 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                <div className="absolute inset-0 rounded-full flex items-center justify-center overflow-hidden">
                   <img 
                     src={logoImage} 
                     alt="Samundar Paar Logo" 
