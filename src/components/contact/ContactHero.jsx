@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaClock, FaHandshake } from "react-icons/fa";
 import { GiSewingNeedle } from "react-icons/gi";
 
 export default function ContactHero() {
@@ -19,11 +19,7 @@ export default function ContactHero() {
   }, []);
 
   return (
-    <div style={{ 
-      marginTop: '80px',
-      height: 'calc(100vh - 80px)',
-      overflow: 'hidden'
-    }}>
+    <div className="relative h-[calc(100vh-80px)] mt-20 bg-gradient-to-br from-[#edefee] via-[#edefee] to-[#09341c]/10 overflow-hidden">
       <style jsx>{`
         [data-aos="fade-right"] {
           opacity: 0;
@@ -45,17 +41,18 @@ export default function ContactHero() {
           transform: scale(0.8);
           transition: all 0.8s ease-in-out;
         }
+        [data-aos="fade-in"] {
+          opacity: 0;
+          transition: all 0.8s ease-in-out;
+        }
         .aos-animate {
           opacity: 1 !important;
           transform: translate(0) scale(1) !important;
         }
-        .gradient-bg {
-          background: linear-gradient(135deg, #8B2635 0%, #2D5016 100%);
-        }
         .textile-pattern {
           background-image: 
-            radial-gradient(circle at 25% 25%, rgba(139, 38, 53, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 25% 25%, rgba(170, 41, 57, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(9, 52, 28, 0.05) 0%, transparent 50%),
             url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&h=100&fit=crop&crop=center');
           background-size: 200px 200px, 200px 200px, 50px 50px;
           background-position: 0 0, 100px 100px, 0 0;
@@ -65,130 +62,112 @@ export default function ContactHero() {
         }
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+          50% { transform: translateY(-15px); }
         }
         .pulse-border {
           animation: pulse-border 2s ease-in-out infinite;
         }
         @keyframes pulse-border {
-          0%, 100% { border-color: rgba(139, 38, 53, 0.5); }
-          50% { border-color: rgba(139, 38, 53, 1); }
+          0%, 100% { border-color: rgba(170, 41, 57, 0.3); }
+          50% { border-color: rgba(170, 41, 57, 0.7); }
+        }
+        .pulse-border-secondary {
+          animation: pulse-border-secondary 2s ease-in-out infinite;
+        }
+        @keyframes pulse-border-secondary {
+          0%, 100% { border-color: rgba(9, 52, 28, 0.3); }
+          50% { border-color: rgba(9, 52, 28, 0.7); }
         }
         .hover-lift {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-lift:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(139, 38, 53, 0.2);
+          transform: translateY(-4px);
+          box-shadow: 0 15px 30px rgba(170, 41, 57, 0.15);
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
+        /* Mobile-first responsive design improvements */
+        @media (max-width: 480px) {
           .floating-element {
             animation: none;
+          }
+          .hover-lift:hover {
+            transform: none;
+            box-shadow: 0 4px 8px rgba(170, 41, 57, 0.1);
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(170, 41, 57, 0.12);
           }
         }
         
         @media (max-width: 768px) {
-          .hover-lift:hover {
-            transform: none;
-            box-shadow: 0 10px 20px rgba(139, 38, 53, 0.15);
+          .floating-element {
+            animation-duration: 8s;
           }
         }
       `}</style>
 
-      <section className="relative h-full overflow-hidden">
+      <section className="relative h-full flex items-center">
         {/* Background with textile pattern */}
-        <div className="absolute inset-0 textile-pattern opacity-20"></div>
+        <div className="absolute inset-0 textile-pattern opacity-30"></div>
         
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/90 to-transparent"></div>
+        {/* Enhanced gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#edefee]/80 to-[#09341c]/5"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex flex-col justify-center py-8 lg:py-12">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 flex-grow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-4 sm:py-6 lg:py-8 w-full h-full">
+          <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-12 h-full min-h-0">
             {/* Text content */}
-            <div className="lg:w-1/2 space-y-6 lg:space-y-8" data-aos="fade-right">
+            <div className="w-full lg:w-1/2 space-y-3 sm:space-y-4 lg:space-y-6" data-aos="fade-right">
               {/* Main heading */}
               <div className="text-center lg:text-left">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
-                  <span style={{ color: '#8B2635' }}>Contact</span>{' '}
-                  <span style={{ color: '#2D5016' }}>Us</span>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+                  <span className="text-[#aa2939]">Get in</span>{' '}
+                  <span className="text-[#09341c]">Touch</span>
                 </h1>
-                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl">
-                  Connecting cultures through exceptional tailoring. Whether you're interested in our 
-                  collections, custom projects, or have questions about our services - we're here to help 
-                  across both continents.
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto lg:mx-0 mb-2 sm:mb-3">
+                  Bridging continents through exceptional craftsmanship. From London's fashion districts to Lahore's traditional workshops.
+                </p>
+                <p className="text-xs sm:text-sm lg:text-base text-gray-500 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  Whether seeking custom garments or exploring our collections, our teams in the UK and Pakistan are ready to assist you.
                 </p>
               </div>
               
               {/* Contact cards */}
-              <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
-                {/* UK Contact */}
-                <div 
-                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg border-l-4 hover-lift pulse-border"
-                  style={{ borderLeftColor: '#8B2635' }}
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                >
-                  <div className="flex items-center mb-3 lg:mb-4">
-                    <div className="w-8 h-5 lg:w-10 lg:h-6 mr-2 lg:mr-3 rounded overflow-hidden shadow-sm">
-                      <img 
-                        src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=40&h=24&fit=crop&crop=center" 
-                        alt="UK Flag" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-lg lg:text-xl font-bold" style={{ color: '#8B2635' }}>
-                      London Office
-                    </h3>
-                  </div>
-                  <div className="space-y-2 lg:space-y-3 text-gray-600">
-                    <div className="flex items-center">
-                      <FaMapMarkerAlt className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#8B2635' }} />
-                      <span className="text-xs lg:text-sm">123 Savile Row, London</span>
-                    </div>
-                    <div className="flex items-center">
-                      <FaPhone className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#8B2635' }} />
-                      <span className="text-sm lg:text-base">+44 20 7123 4567</span>
-                    </div>
-                    <div className="flex items-center">
-                      <FaEnvelope className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#8B2635' }} />
-                      <span className="text-xs lg:text-sm">london@samundarpaar.com</span>
-                    </div>
-                  </div>
-                </div>
-                
+              <div className="space-y-3">
                 {/* Pakistan Contact */}
                 <div 
-                  className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-lg border-l-4 hover-lift pulse-border"
-                  style={{ borderLeftColor: '#2D5016' }}
+                  className="bg-[#edefee] rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-5 shadow-lg border-l-4 hover-lift pulse-border-secondary border-[#09341c]"
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  <div className="flex items-center mb-3 lg:mb-4">
-                    <div className="w-8 h-5 lg:w-10 lg:h-6 mr-2 lg:mr-3 rounded overflow-hidden shadow-sm">
+                  <div className="flex items-center mb-2 sm:mb-3">
+                    <div className="w-6 h-4 sm:w-8 sm:h-5 mr-2 sm:mr-3 rounded overflow-hidden shadow-sm flex-shrink-0">
                       <img 
                         src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=40&h=24&fit=crop&crop=center" 
                         alt="Pakistan Flag" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-lg lg:text-xl font-bold" style={{ color: '#2D5016' }}>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[#09341c]">
                       Lahore Workshop
                     </h3>
                   </div>
-                  <div className="space-y-2 lg:space-y-3 text-gray-600">
+                  <div className="space-y-2 text-gray-600">
                     <div className="flex items-center">
-                      <FaMapMarkerAlt className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#2D5016' }} />
-                      <span className="text-xs lg:text-sm">45 MM Alam Road, Gulberg</span>
+                      <FaPhone className="mr-2 sm:mr-3 text-xs sm:text-sm flex-shrink-0 text-[#09341c]" />
+                      <span className="text-xs sm:text-sm">+92-(321)-4660662</span>
+                    </div>
+                    <div className="flex items-start">
+                      <FaEnvelope className="mr-2 sm:mr-3 mt-0.5 text-xs sm:text-sm flex-shrink-0 text-[#09341c]" />
+                      <span className="text-xs sm:text-sm break-all">mateen.chma@gmail.com</span>
                     </div>
                     <div className="flex items-center">
-                      <FaPhone className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#2D5016' }} />
-                      <span className="text-sm lg:text-base">+92 42 1234 5678</span>
-                    </div>
-                    <div className="flex items-center">
-                      <FaEnvelope className="mr-2 lg:mr-3 text-sm lg:text-base" style={{ color: '#2D5016' }} />
-                      <span className="text-xs lg:text-sm">lahore@samundarpaar.com</span>
+                      <FaClock className="mr-2 sm:mr-3 text-xs sm:text-sm flex-shrink-0 text-[#09341c]" />
+                      <span className="text-xs sm:text-sm">Mon-Sat: 10AM-8PM PKT</span>
                     </div>
                   </div>
                 </div>
@@ -196,69 +175,70 @@ export default function ContactHero() {
 
               {/* Additional info */}
               <div 
-                className="flex items-center justify-center lg:justify-start space-x-4 lg:space-x-6 p-3 lg:p-4 rounded-lg lg:rounded-xl"
-                style={{ backgroundColor: '#f8f9fa' }}
+                className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4"
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <div className="flex items-center">
-                  <FaGlobe className="mr-1 lg:mr-2 text-sm lg:text-base" style={{ color: '#8B2635' }} />
-                  <span className="text-xs lg:text-sm font-medium text-gray-700">Global Shipping</span>
+                <div className="flex flex-col items-center text-center p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl bg-[#edefee] shadow-md hover-lift">
+                  <FaGlobe className="mb-1 sm:mb-2 text-sm sm:text-base lg:text-lg text-[#aa2939]" />
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">Global Shipping</span>
+                  <span className="text-xs text-gray-500 mt-0.5 hidden sm:block">Worldwide delivery</span>
                 </div>
-                <div className="w-px h-4 lg:h-6 bg-gray-300"></div>
-                <div className="flex items-center">
-                  <GiSewingNeedle className="mr-1 lg:mr-2 text-sm lg:text-base" style={{ color: '#2D5016' }} />
-                  <span className="text-xs lg:text-sm font-medium text-gray-700">Custom Tailoring</span>
+                <div className="flex flex-col items-center text-center p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl bg-[#edefee] shadow-md hover-lift">
+                  <GiSewingNeedle className="mb-1 sm:mb-2 text-sm sm:text-base lg:text-lg text-[#09341c]" />
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">Custom Tailoring</span>
+                  <span className="text-xs text-gray-500 mt-0.5 hidden sm:block">Bespoke solutions</span>
+                </div>
+                <div className="flex flex-col items-center text-center p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl bg-[#edefee] shadow-md hover-lift">
+                  <FaHandshake className="mb-1 sm:mb-2 text-sm sm:text-base lg:text-lg text-[#aa2939]" />
+                  <span className="text-xs sm:text-sm font-semibold text-gray-700">Expert Consultation</span>
+                  <span className="text-xs text-gray-500 mt-0.5 hidden sm:block">Personal guidance</span>
                 </div>
               </div>
             </div>
             
             {/* Image section */}
-            <div className="lg:w-1/2" data-aos="fade-left">
-              <div className="relative">
+            <div className="w-full lg:w-1/2 flex-shrink-0 flex-1 lg:flex-initial" data-aos="fade-left">
+              <div className="relative h-full lg:h-auto">
                 {/* Main image */}
-                <div className="rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl">
+                <div className="rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl h-full lg:h-auto">
                   <img 
                     src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" 
                     alt="Tailoring workshop with traditional and modern elements" 
-                    className="w-full h-48 sm:h-64 lg:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full lg:h-80 xl:h-96 object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent"></div>
                 </div>
                 
-                {/* Floating decorative elements - Hidden on mobile for cleaner look */}
+                {/* Floating decorative elements - Only visible on larger screens */}
                 <div 
-                  className="hidden lg:block absolute -bottom-6 -left-6 w-16 h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center shadow-xl floating-element"
-                  style={{ background: 'linear-gradient(135deg, #8B2635 0%, #A73142 100%)' }}
+                  className="hidden lg:block absolute -bottom-4 -left-4 w-12 h-12 xl:w-16 xl:h-16 rounded-full flex items-center justify-center shadow-xl floating-element bg-gradient-to-br from-[#aa2939] to-[#c13449]"
                   data-aos="zoom-in"
                   data-aos-delay="400"
                 >
                   <img 
                     src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=30&h=20&fit=crop&crop=center" 
                     alt="UK" 
-                    className="w-6 h-4 lg:w-8 lg:h-5 object-cover rounded"
+                    className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
                   />
                 </div>
                 
                 <div 
-                  className="hidden lg:block absolute -top-6 -right-6 w-16 h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center shadow-xl floating-element"
-                  style={{ 
-                    background: 'linear-gradient(135deg, #2D5016 0%, #3A6B1C 100%)',
-                    animationDelay: '2s'
-                  }}
+                  className="hidden lg:block absolute -top-4 -right-4 w-12 h-12 xl:w-16 xl:h-16 rounded-full flex items-center justify-center shadow-xl floating-element bg-gradient-to-br from-[#09341c] to-[#0d4422]"
+                  style={{ animationDelay: '2s' }}
                   data-aos="zoom-in"
                   data-aos-delay="500"
                 >
                   <img 
                     src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=30&h=20&fit=crop&crop=center" 
                     alt="PK" 
-                    className="w-6 h-4 lg:w-8 lg:h-5 object-cover rounded"
+                    className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
                   />
                 </div>
 
-                {/* Additional decorative images - Smaller on mobile */}
+                {/* Additional decorative images - Hidden on mobile for space */}
                 <div 
-                  className="absolute top-2 left-2 lg:top-4 lg:left-4 w-12 h-12 lg:w-16 lg:h-16 rounded-full overflow-hidden shadow-lg border-2 lg:border-4 border-white floating-element"
+                  className="hidden md:block absolute top-3 left-3 w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#edefee] floating-element"
                   style={{ animationDelay: '1s' }}
                   data-aos="fade-in"
                   data-aos-delay="600"
@@ -271,7 +251,7 @@ export default function ContactHero() {
                 </div>
 
                 <div 
-                  className="absolute bottom-2 right-2 lg:bottom-4 lg:right-4 w-12 h-12 lg:w-16 lg:h-16 rounded-full overflow-hidden shadow-lg border-2 lg:border-4 border-white floating-element"
+                  className="hidden md:block absolute bottom-3 right-3 w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#edefee] floating-element"
                   style={{ animationDelay: '3s' }}
                   data-aos="fade-in"
                   data-aos-delay="700"
@@ -283,21 +263,8 @@ export default function ContactHero() {
                   />
                 </div>
               </div>
-
-              {/* Connection line between countries - Hidden on mobile */}
-              <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                <div 
-                  className="w-32 h-0.5 opacity-30"
-                  style={{ 
-                    background: 'linear-gradient(90deg, #8B2635 0%, #2D5016 100%)',
-                    transform: 'rotate(-15deg)'
-                  }}
-                ></div>
-              </div>
             </div>
           </div>
-
-
         </div>
       </section>
     </div>

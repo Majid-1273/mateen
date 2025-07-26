@@ -70,6 +70,14 @@ const ServiceCategories = () => {
 
   const filteredServices = services.filter(service => service.category === activeFilter);
 
+  const handleContactUs = () => {
+    window.open('mailto:mateen.chma@gmail.com?subject=Product Inquiry - Shopping from Pakistan', '_blank');
+  };
+
+  const handleLiveShopping = () => {
+    window.open('https://wa.me/923214660662?text=Hi! I would like to book a live shopping session from Pakistan.', '_blank');
+  };
+
   const ServiceCard = ({ title, description, icon, image, reverse, brands, category }) => (
     <div 
       className={`rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2 border ${
@@ -160,6 +168,7 @@ const ServiceCategories = () => {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <button 
+              onClick={handleContactUs}
               className="flex-1 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
               style={{
                 background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)',
@@ -167,9 +176,10 @@ const ServiceCategories = () => {
               }}
             >
               <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4" />
-              Order Now
+              Contact Us
             </button>
             <button 
+              onClick={handleLiveShopping}
               className="flex-1 border-2 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base hover:text-white"
               style={{ 
                 borderColor: '#aa2939',
@@ -288,44 +298,6 @@ const ServiceCategories = () => {
                 />
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Bottom CTA Section */}
-        <div className="text-center mt-4 sm:mt-6">
-          <div className="rounded-xl p-4 sm:p-6 shadow-xl border max-w-4xl mx-auto" style={{ backgroundColor: 'rgba(237, 239, 238, 0.9)', borderColor: 'rgba(9, 52, 28, 0.1)' }}>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              Ready to Shop from Pakistan?
-            </h3>
-            <p className="text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed" style={{ color: '#09341c', opacity: 0.8 }}>
-              Tell us what you want, and we'll handle everything from shopping to shipping. 
-              Experience Pakistani brands like never before with our personal shopping service.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
-              <button 
-                className="px-4 sm:px-8 py-2 sm:py-3 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
-                style={{
-                  background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)',
-                  color: '#edefee'
-                }}
-              >
-                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
-                Place Order
-              </button>
-              <button 
-                className="px-4 sm:px-8 py-2 sm:py-3 border-2 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base hover:text-white"
-                style={{ 
-                  borderColor: '#aa2939',
-                  color: '#aa2939',
-                  backgroundColor: 'transparent'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#aa2939'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-              >
-                <Video className="w-4 h-4 sm:w-5 sm:h-5" />
-                Book Live Shopping
-              </button>
-            </div>
           </div>
         </div>
       </div>
