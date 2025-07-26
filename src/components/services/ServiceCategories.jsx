@@ -9,11 +9,10 @@ const ServiceCategories = () => {
     {
       title: "Fashion & Apparel",
       description: "Premium Pakistani fashion brands delivered worldwide. From traditional shalwar kameez to modern western wear, we connect you with Pakistan's finest clothing brands and help you shop remotely.",
-      icon: <ShoppingBag className="w-8 h-8" />,
+      icon: <ShoppingBag className="w-6 h-6 sm:w-8 sm:h-8" />,
       category: "fashion",
       image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop&crop=center",
       brands: [
-        { name: "Khaadi", website: "https://www.khaadi.com", specialty: "Traditional & Contemporary" },
         { name: "Sana Safinaz", website: "https://www.sanasafinaz.com", specialty: "Luxury Fashion" },
         { name: "Maria B", website: "https://www.mariab.pk", specialty: "Designer Wear" },
         { name: "Gul Ahmed", website: "https://www.gulahmad.com", specialty: "Premium Textiles" }
@@ -63,7 +62,7 @@ const ServiceCategories = () => {
   ];
 
   const categories = [
-    { id: 'fashion', name: 'Fashion & Apparel', icon: <ShoppingBag className="w-5 h-5" /> },
+    { id: 'fashion', name: 'Fashion & Apparel', icon: <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" /> },
     { id: 'footwear', name: 'Footwear', icon: '👠' },
     { id: 'accessories', name: 'Accessories', icon: '💎' },
     { id: 'home', name: 'Home & Living', icon: '🏠' }
@@ -73,9 +72,13 @@ const ServiceCategories = () => {
 
   const ServiceCard = ({ title, description, icon, image, reverse, brands, category }) => (
     <div 
-      className={`bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 ${
+      className={`rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2 border ${
         reverse ? 'lg:flex-row-reverse' : ''
       }`}
+      style={{ 
+        backgroundColor: '#edefee',
+        borderColor: 'rgba(170, 41, 57, 0.2)'
+      }}
       data-aos="fade-up"
     >
       <div className={`flex flex-col lg:flex-row ${reverse ? 'lg:flex-row-reverse' : ''}`}>
@@ -84,64 +87,70 @@ const ServiceCategories = () => {
           <img 
             src={image} 
             alt={title}
-            className="w-full h-64 lg:h-full object-cover transition-transform duration-700 hover:scale-110"
+            className="w-full h-48 sm:h-56 md:h-64 lg:h-full object-cover transition-transform duration-700 hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 rounded-full p-2 sm:p-3 shadow-lg" style={{ backgroundColor: 'rgba(237, 239, 238, 0.9)' }}>
             {typeof icon === 'string' ? (
-              <span className="text-2xl">{icon}</span>
+              <span className="text-xl sm:text-2xl">{icon}</span>
             ) : (
-              <div className="text-green-600">{icon}</div>
+              <div style={{ color: '#09341c' }}>{icon}</div>
             )}
           </div>
         </div>
 
         {/* Content Section */}
-        <div className="lg:w-1/2 p-8 flex flex-col justify-between">
+        <div className="lg:w-1/2 p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-800">{title}</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4" style={{ color: '#09341c' }}>{title}</h3>
+            <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed" style={{ color: '#09341c', opacity: 0.8 }}>{description}</p>
             
             {/* Service Features */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="flex items-center gap-2 text-sm text-green-600">
-                <Package className="w-4 h-4" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: '#09341c' }}>
+                <Package className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Door-to-door delivery</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-red-600">
-                <Video className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: '#aa2939' }}>
+                <Video className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Live shopping available</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-red-600">
-                <Globe className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: '#aa2939' }}>
+                <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Worldwide shipping</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-red-600">
-                <Star className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-xs sm:text-sm" style={{ color: '#aa2939' }}>
+                <Star className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>Quality guaranteed</span>
               </div>
             </div>
 
             {/* Featured Brands */}
-            <div className="mb-6">
-              <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-green-600" />
+            <div className="mb-4 sm:mb-6">
+              <h4 className="font-semibold mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base" style={{ color: '#09341c' }}>
+                <MapPin className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: '#09341c' }} />
                 Featured Pakistani Brands
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2">
                 {brands.map((brand, idx) => (
                   <a
                     key={idx}
                     href={brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors duration-200 group"
+                    className="flex items-center justify-between p-2 sm:p-3 rounded-lg hover:shadow-md transition-all duration-200 group"
+                    style={{ 
+                      backgroundColor: 'rgba(9, 52, 28, 0.05)',
+                      borderColor: 'rgba(9, 52, 28, 0.1)'
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(9, 52, 28, 0.1)'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(9, 52, 28, 0.05)'}
                   >
                     <div>
-                      <div className="font-medium text-gray-800 text-sm">{brand.name}</div>
-                      <div className="text-xs text-gray-500">{brand.specialty}</div>
+                      <div className="font-medium text-xs sm:text-sm" style={{ color: '#09341c' }}>{brand.name}</div>
+                      <div className="text-xs" style={{ color: '#09341c', opacity: 0.6 }}>{brand.specialty}</div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" style={{ color: '#aa2939' }} />
                   </a>
                 ))}
               </div>
@@ -149,13 +158,28 @@ const ServiceCategories = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button className="flex-1 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-              <ShoppingBag className="w-4 h-4" />
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            <button 
+              className="flex-1 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
+              style={{
+                background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)',
+                color: '#edefee'
+              }}
+            >
+              <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4" />
               Order Now
             </button>
-            <button className="flex-1 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
-              <Video className="w-4 h-4" />
+            <button 
+              className="flex-1 border-2 font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base hover:text-white"
+              style={{ 
+                borderColor: '#aa2939',
+                color: '#aa2939',
+                backgroundColor: 'transparent'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#aa2939'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            >
+              <Video className="w-3 h-3 sm:w-4 sm:h-4" />
               Live Shopping
             </button>
           </div>
@@ -165,80 +189,92 @@ const ServiceCategories = () => {
   );
 
   return (
-    <div className="relative bg-gradient-to-br from-slate-50 via-white to-green-50 overflow-hidden">
+    <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #edefee 0%, rgba(9, 52, 28, 0.05) 50%, rgba(170, 41, 57, 0.05) 100%)' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-green-600 rounded-full blur-3xl"></div>
-        <div className="absolute top-20 right-20 w-36 h-36 bg-red-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/3 w-28 h-28 bg-green-700 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 bg-red-700 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-24 h-24 sm:w-32 sm:h-32 rounded-full blur-3xl" style={{ backgroundColor: '#09341c' }}></div>
+        <div className="absolute top-20 right-20 w-28 h-28 sm:w-36 sm:h-36 rounded-full blur-3xl" style={{ backgroundColor: '#aa2939' }}></div>
+        <div className="absolute bottom-20 left-1/3 w-20 h-20 sm:w-28 sm:h-28 rounded-full blur-3xl" style={{ backgroundColor: '#09341c' }}></div>
+        <div className="absolute bottom-10 right-10 w-18 h-18 sm:w-24 sm:h-24 rounded-full blur-3xl" style={{ backgroundColor: '#aa2939' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 h-full flex flex-col py-6">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10 h-full flex flex-col py-4 sm:py-6">
         {/* Header Section */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-12 h-1 bg-gradient-to-r from-green-600 to-red-600 rounded-full"></div>
-            <span className="text-sm font-semibold text-green-700 tracking-wider uppercase">Shop from Pakistan</span>
-            <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-green-600 rounded-full"></div>
+        <div className="text-center mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
+            <div className="w-8 sm:w-12 h-0.5 sm:h-1 rounded-full" style={{ background: 'linear-gradient(90deg, #09341c 0%, #aa2939 100%)' }}></div>
+            <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase" style={{ color: '#09341c' }}>Shop from Pakistan</span>
+            <div className="w-8 sm:w-12 h-0.5 sm:h-1 rounded-full" style={{ background: 'linear-gradient(90deg, #aa2939 0%, #09341c 100%)' }}></div>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-700 via-slate-800 to-red-700 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 leading-tight" style={{ background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             International Shopping Services
             <br />
-            <span className="text-lg md:text-xl">We Shop, You Receive Worldwide</span>
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl">We Shop, You Receive Worldwide</span>
           </h2>
           
-          <p className="text-sm md:text-base max-w-4xl mx-auto text-slate-600 leading-relaxed mb-6">
+          <p className="text-xs sm:text-sm md:text-base max-w-4xl mx-auto leading-relaxed mb-4 sm:mb-6" style={{ color: '#09341c', opacity: 0.8 }}>
             Place your orders, and we'll shop from your favorite Pakistani brands on your behalf. 
-            From <span className="font-semibold text-green-700">traditional crafts</span> to <span className="font-semibold text-red-700">modern fashion</span>, 
+            From <span className="font-semibold" style={{ color: '#09341c' }}>traditional crafts</span> to <span className="font-semibold" style={{ color: '#aa2939' }}>modern fashion</span>, 
             we bring Pakistan's best products to your doorstep anywhere in the world.
           </p>
 
           {/* Service Categories Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveFilter(category.id)}
-                className={`group flex items-center gap-2 px-4 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`group flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm ${
                   activeFilter === category.id
-                    ? 'bg-gradient-to-r from-green-600 to-red-600 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200 hover:border-green-300 hover:shadow-md'
+                    ? 'shadow-lg transform scale-105'
+                    : 'hover:shadow-md border'
                 }`}
+                style={activeFilter === category.id 
+                  ? { 
+                      background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)',
+                      color: '#edefee'
+                    }
+                  : { 
+                      backgroundColor: '#edefee', 
+                      color: '#09341c',
+                      borderColor: 'rgba(9, 52, 28, 0.2)'
+                    }
+                }
               >
                 {typeof category.icon === 'string' ? (
-                  <span className="text-lg">{category.icon}</span>
+                  <span className="text-sm sm:text-lg">{category.icon}</span>
                 ) : (
                   category.icon
                 )}
-                <span className="text-sm font-semibold">{category.name}</span>
+                <span className="font-semibold hidden sm:inline">{category.name}</span>
+                <span className="font-semibold sm:hidden">{category.name.split(' ')[0]}</span>
               </button>
             ))}
           </div>
 
           {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <Package className="w-5 h-5 text-green-600" />
-              <span className="text-sm font-medium text-green-700">We Buy For You</span>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg" style={{ backgroundColor: 'rgba(237, 239, 238, 0.8)' }}>
+              <Package className="w-3 h-3 sm:w-5 sm:h-5" style={{ color: '#09341c' }} />
+              <span className="text-xs sm:text-sm font-medium" style={{ color: '#09341c' }}>We Buy For You</span>
             </div>
             
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <Video className="w-5 h-5 text-red-600" />
-              <span className="text-sm font-medium text-red-700">Live Shopping</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg" style={{ backgroundColor: 'rgba(237, 239, 238, 0.8)' }}>
+              <Video className="w-3 h-3 sm:w-5 sm:h-5" style={{ color: '#aa2939' }} />
+              <span className="text-xs sm:text-sm font-medium" style={{ color: '#aa2939' }}>Live Shopping</span>
             </div>
 
-            <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-              <Globe className="w-5 h-5 text-red-600" />
-              <span className="text-sm font-medium text-red-700">Global Delivery</span>
+            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg" style={{ backgroundColor: 'rgba(237, 239, 238, 0.8)' }}>
+              <Globe className="w-3 h-3 sm:w-5 sm:h-5" style={{ color: '#aa2939' }} />
+              <span className="text-xs sm:text-sm font-medium" style={{ color: '#aa2939' }}>Global Delivery</span>
             </div>
           </div>
         </div>
 
         {/* Services Grid - Scrollable */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="space-y-8 max-w-7xl mx-auto pb-4">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 max-w-7xl mx-auto pb-4">
             {filteredServices.map((service, index) => (
               <div key={index} className="relative">
                 <ServiceCard
@@ -256,22 +292,37 @@ const ServiceCategories = () => {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="text-center mt-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-green-100 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-green-700 to-red-700 bg-clip-text text-transparent">
+        <div className="text-center mt-4 sm:mt-6">
+          <div className="rounded-xl p-4 sm:p-6 shadow-xl border max-w-4xl mx-auto" style={{ backgroundColor: 'rgba(237, 239, 238, 0.9)', borderColor: 'rgba(9, 52, 28, 0.1)' }}>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               Ready to Shop from Pakistan?
             </h3>
-            <p className="text-slate-600 mb-4 leading-relaxed">
+            <p className="text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed" style={{ color: '#09341c', opacity: 0.8 }}>
               Tell us what you want, and we'll handle everything from shopping to shipping. 
               Experience Pakistani brands like never before with our personal shopping service.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="px-8 py-3 bg-gradient-to-r from-green-600 to-red-600 hover:from-green-700 hover:to-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
+              <button 
+                className="px-4 sm:px-8 py-2 sm:py-3 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
+                style={{
+                  background: 'linear-gradient(135deg, #09341c 0%, #aa2939 100%)',
+                  color: '#edefee'
+                }}
+              >
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
                 Place Order
               </button>
-              <button className="px-8 py-3 border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold rounded-lg transition-all duration-300 flex items-center gap-2">
-                <Video className="w-5 h-5" />
+              <button 
+                className="px-4 sm:px-8 py-2 sm:py-3 border-2 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base hover:text-white"
+                style={{ 
+                  borderColor: '#aa2939',
+                  color: '#aa2939',
+                  backgroundColor: 'transparent'
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#aa2939'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+              >
+                <Video className="w-4 h-4 sm:w-5 sm:h-5" />
                 Book Live Shopping
               </button>
             </div>
@@ -281,18 +332,18 @@ const ServiceCategories = () => {
 
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f5f9;
-          border-radius: 3px;
+          background: rgba(237, 239, 238, 0.5);
+          border-radius: 2px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #16a34a, #dc2626);
-          border-radius: 3px;
+          background: linear-gradient(to bottom, #09341c, #aa2939);
+          border-radius: 2px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #15803d, #b91c1c);
+          background: linear-gradient(to bottom, #0a3f20, #b82e43);
         }
       `}</style>
     </div>

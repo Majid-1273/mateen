@@ -7,8 +7,9 @@ import AboutSection from "../components/collections/AboutSection"
 const Collections = () => {
   return (
     <div className="font-sans">
-      <HeroBanner />
+      
       <Collection />
+      <HeroBanner />
       <ServicesSection />
       <AboutSection />
     </div>

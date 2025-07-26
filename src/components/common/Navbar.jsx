@@ -4,6 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import logoImage from "../../data/images/samundar paar.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,9 +39,13 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center" data-aos="fade-right">
             <Link to="/" className="flex-shrink-0 flex items-center group">
-              <div className="relative h-12 w-12 mr-3">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-800 to-green-900 rounded-full flex items-center justify-center shadow-lg">
-                  <div className="text-white text-lg font-bold">SP</div>
+              <div className="relative h-18 w-18 mr-3">
+                <div className="absolute inset-0 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                  <img 
+                    src={logoImage} 
+                    alt="Samundar Paar Logo" 
+                    className="w-40 h-40 object-contain"
+                  />
                 </div>
               </div>
               <div className="flex flex-col">

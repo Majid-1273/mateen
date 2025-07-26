@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaArrowRight, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaArrowRight, FaStar, FaChevronLeft, FaChevronRight, FaVideo, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
@@ -55,12 +55,12 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="relative h-screen lg:h-[calc(100vh-80px)] mt-16 xs:mt-18 sm:mt-20 bg-gradient-to-br from-gray-50 via-white to-green-50/30 overflow-hidden">
+    <div className="relative h-screen lg:h-[calc(100vh-80px)] mt-16 xs:mt-18 sm:mt-20 bg-gradient-to-br from-[#edefee] via-[#edefee] to-[#09341c]/10 overflow-hidden">
       {/* Background pattern - subtle geometric pattern */}
       <div 
         className="absolute inset-0 opacity-5 z-0"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23166534' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='0' cy='30' r='2'/%3E%3Ccircle cx='60' cy='30' r='2'/%3E%3Ccircle cx='30' cy='0' r='2'/%3E%3Ccircle cx='30' cy='60' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2309341c' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='0' cy='30' r='2'/%3E%3Ccircle cx='60' cy='30' r='2'/%3E%3Ccircle cx='30' cy='0' r='2'/%3E%3Ccircle cx='30' cy='60' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
         }}
       />
@@ -75,19 +75,19 @@ export default function HeroSection() {
             <div className="inline-flex items-center justify-center lg:justify-start px-[2vw] xs:px-4 py-[1vh] xs:py-2 bg-white rounded-full shadow-lg mb-[2vh] xs:mb-[2.5vh] sm:mb-[3vh] border border-gray-100 mx-auto lg:mx-0">
               <span className="text-[3vw] xs:text-base sm:text-lg mr-1.5 xs:mr-2">🌙</span>
               <span className="text-[2.5vw] xs:text-sm sm:text-base font-semibold text-gray-700">Pakistan</span>
-              <div className="w-[1vw] h-[1vw] xs:w-2 xs:h-2 sm:w-2.5 sm:h-2.5 bg-gradient-to-r from-green-800 to-red-700 rounded-full mx-2 xs:mx-3 min-w-[6px] min-h-[6px]"></div>
+              <div className="w-[1vw] h-[1vw] xs:w-2 xs:h-2 sm:w-2.5 sm:h-2.5 bg-gradient-to-r from-[#09341c] to-[#aa2939] rounded-full mx-2 xs:mx-3 min-w-[6px] min-h-[6px]"></div>
               <span className="text-[2.5vw] xs:text-sm sm:text-base font-semibold text-gray-700">England</span>
               <span className="text-[3vw] xs:text-base sm:text-lg ml-1.5 xs:ml-2">👑</span>
             </div>
 
             {/* Main Heading - Better formatting and viewport-based sizing */}
             <h1 className="text-[6vw] xs:text-[5vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight xs:leading-tight sm:leading-tight mb-[2vh] xs:mb-[2.5vh] sm:mb-[3vh] lg:mb-6 px-2 xs:px-0 text-center lg:text-left">
-              <span className="block">Where</span>
-              <span className="bg-gradient-to-r from-red-700 to-red-600 bg-clip-text text-transparent block">
+              <span className="block text-gray-800">Where</span>
+              <span className="bg-gradient-to-r from-[#aa2939] to-[#aa2939]/80 bg-clip-text text-transparent block">
                 English Elegance
               </span>
-              <span className="block">Meets</span>
-              <span className="bg-gradient-to-r from-green-800 to-green-700 bg-clip-text text-transparent block">
+              <span className="block text-gray-800">Meets</span>
+              <span className="bg-gradient-to-r from-[#09341c] to-[#09341c]/80 bg-clip-text text-transparent block">
                 Pakistani Heritage
               </span>
             </h1>
@@ -97,30 +97,40 @@ export default function HeroSection() {
               Crafting exceptional textiles and garments that bridge cultures, unite traditions, 
               and celebrate the magnificent artistry of two proud nations.
             </p>
-
-            {/* Stats */}
-{/* <div className="flex items-center justify-center lg:justify-start space-x-3 xs:space-x-4 sm:space-x-6 mb-[2vh] xs:mb-[3vh] sm:mb-8">
-  <div className="flex items-center">
-    <span className="ml-2 text-[2.8vw] xs:text-base sm:text-lg text-gray-800 font-semibold tracking-wide uppercase">
-      JO CHAHO WO MNGWAO
-    </span>
-  </div>
-</div> */}
-
             
             {/* CTA Buttons */}
-            <div className="flex flex-row space-x-3 sm:space-x-4 w-full justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full justify-center lg:justify-start">
               
-              <Link to='/collections'
-                className="group px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-gradient-to-r from-green-800 to-red-700 text-white font-semibold rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap"
+              {/* Live Shopping Button */}
+              <Link to='/live-shopping'
+                className="group relative px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-gradient-to-r from-[#aa2939] to-[#aa2939]/90 text-[#edefee] font-semibold rounded-full hover:from-[#aa2939]/90 hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap overflow-hidden"
               >
+                {/* Animated background effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                
+                <FaVideo className="mr-2 w-[2vw] h-[2vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px] animate-pulse" />
+                Live Shopping Now
+                <div className="ml-2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              </Link>
+
+              {/* Buy For Me in Pakistan Button */}
+              <Link to='/collections'
+                className="group px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-gradient-to-r from-[#09341c] to-[#09341c]/90 text-[#edefee] font-semibold rounded-full hover:from-[#09341c]/90 hover:to-[#09341c] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap"
+              >
+                <FaShoppingBag className="mr-2 w-[2vw] h-[2vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px]" />
                 Buy For Me in Pakistan
                 <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300 w-[2vw] h-[2vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px]" />
               </Link>
-              {/* <Link to='/about'
-                className="px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-300 hover:border-green-800 hover:text-green-800 hover:bg-green-50 transition-all duration-300 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap">
-                Our Heritage Story
-              </Link> */}
+            </div>
+
+            {/* Live indicator below buttons */}
+            <div className="flex items-center justify-center lg:justify-start mt-3 sm:mt-4">
+              <div className="flex items-center bg-[#aa2939]/10 px-3 py-1.5 rounded-full">
+                <div className="w-2 h-2 bg-[#aa2939] rounded-full animate-pulse mr-2"></div>
+                <span className="text-xs sm:text-sm text-[#aa2939] font-medium">
+                  2,847 people shopping live
+                </span>
+              </div>
             </div>
           </div>
 
@@ -176,8 +186,8 @@ export default function HeroSection() {
                     e.target.src = carouselImages[currentSlide].pakistaniFallback;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-green-800/20 to-transparent"></div>
-                <div className="absolute bottom-0.5 left-0.5 xs:bottom-1 xs:left-1 lg:bottom-2 lg:left-2 text-white text-xs xs:text-xs sm:text-xs font-bold bg-green-800/80 px-1 py-0.5 xs:px-1.5 xs:py-0.5 lg:px-2 lg:py-1 rounded text-[10px] xs:text-xs sm:text-xs">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#09341c]/20 to-transparent"></div>
+                <div className="absolute bottom-0.5 left-0.5 xs:bottom-1 xs:left-1 lg:bottom-2 lg:left-2 text-white text-xs xs:text-xs sm:text-xs font-bold bg-[#09341c]/80 px-1 py-0.5 xs:px-1.5 xs:py-0.5 lg:px-2 lg:py-1 rounded text-[10px] xs:text-xs sm:text-xs">
                   🌙 Heritage
                 </div>
               </div>
@@ -189,15 +199,15 @@ export default function HeroSection() {
                   alt="English tailoring detail"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-700/20 to-transparent"></div>
-                <div className="absolute bottom-0.5 right-0.5 xs:bottom-1 xs:right-1 lg:bottom-2 lg:right-2 text-white text-xs xs:text-xs sm:text-xs font-bold bg-red-700/80 px-1 py-0.5 xs:px-1.5 xs:py-0.5 lg:px-2 lg:py-1 rounded text-[10px] xs:text-xs sm:text-xs">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#aa2939]/20 to-transparent"></div>
+                <div className="absolute bottom-0.5 right-0.5 xs:bottom-1 xs:right-1 lg:bottom-2 lg:right-2 text-white text-xs xs:text-xs sm:text-xs font-bold bg-[#aa2939]/80 px-1 py-0.5 xs:px-1.5 xs:py-0.5 lg:px-2 lg:py-1 rounded text-[10px] xs:text-xs sm:text-xs">
                   👑 Elegance
                 </div>
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute top-2 left-2 xs:top-3 xs:left-3 lg:top-4 lg:left-4 w-2 h-2 xs:w-3 xs:h-3 lg:w-4 lg:h-4 bg-gradient-to-r from-green-800 to-red-700 rounded-full animate-pulse"></div>
-              <div className="absolute bottom-2 right-2 xs:bottom-3 xs:right-3 lg:bottom-4 lg:right-4 w-3 h-3 xs:w-4 xs:h-4 lg:w-6 lg:h-6 bg-gradient-to-r from-red-700 to-green-800 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-2 left-2 xs:top-3 xs:left-3 lg:top-4 lg:left-4 w-2 h-2 xs:w-3 xs:h-3 lg:w-4 lg:h-4 bg-gradient-to-r from-[#09341c] to-[#aa2939] rounded-full animate-pulse"></div>
+              <div className="absolute bottom-2 right-2 xs:bottom-3 xs:right-3 lg:bottom-4 lg:right-4 w-3 h-3 xs:w-4 xs:h-4 lg:w-6 lg:h-6 bg-gradient-to-r from-[#aa2939] to-[#09341c] rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
 
             {/* Carousel dots */}
@@ -208,7 +218,7 @@ export default function HeroSection() {
                   onClick={() => goToSlide(index)}
                   className={`w-[1.5vw] h-[1.5vw] xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 min-w-[8px] min-h-[8px] max-w-[12px] max-h-[12px] ${
                     index === currentSlide
-                      ? 'bg-gradient-to-r from-green-800 to-red-700 scale-125'
+                      ? 'bg-gradient-to-r from-[#09341c] to-[#aa2939] scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
