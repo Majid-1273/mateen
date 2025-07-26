@@ -55,7 +55,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="relative h-screen lg:h-[calc(100vh-80px)] mt-16 xs:mt-18 sm:mt-20 bg-gradient-to-br from-[#edefee] via-[#edefee] to-[#09341c]/10 overflow-hidden">
+    <div className="relative h-screen lg:h-[calc(100vh-80px)] mt-20 xs:mt-18 sm:mt-20 bg-gradient-to-br from-[#edefee] via-[#edefee] to-[#09341c]/10 overflow-hidden">
       {/* Background pattern - subtle geometric pattern */}
       <div 
         className="absolute inset-0 opacity-5 z-0"
@@ -82,20 +82,19 @@ export default function HeroSection() {
 
             {/* Main Heading - Better formatting and viewport-based sizing */}
             <h1 className="text-[6vw] xs:text-[5vw] sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight xs:leading-tight sm:leading-tight mb-[2vh] xs:mb-[2.5vh] sm:mb-[3vh] lg:mb-6 px-2 xs:px-0 text-center lg:text-left">
-              <span className="block text-gray-800">Where</span>
+              <span className="block text-gray-800">Shop Live</span>
               <span className="bg-gradient-to-r from-[#aa2939] to-[#aa2939]/80 bg-clip-text text-transparent block">
-                English Elegance
+               Deliver
               </span>
-              <span className="block text-gray-800">Meets</span>
               <span className="bg-gradient-to-r from-[#09341c] to-[#09341c]/80 bg-clip-text text-transparent block">
-                Pakistani Heritage
+                From Pakistan To <p className="bg-gradient-to-r from-[#aa2939] to-[#aa2939]/80 bg-clip-text text-transparent inline">UK</p>
               </span>
             </h1>
             
-            {/* Description */}
-            <p className="text-[3vw] xs:text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-[2vh] xs:mb-[2.5vh] sm:mb-[3vh] lg:mb-6 px-2 xs:px-0 text-center lg:text-left">
-              Crafting exceptional textiles and garments that bridge cultures, unite traditions, 
-              and celebrate the magnificent artistry of two proud nations.
+            {/* Service Description */}
+            <p className="text-[3vw] xs:text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-[1.5vh] xs:mb-2 sm:mb-3 lg:mb-4 px-2 xs:px-0 text-center lg:text-left">
+              Shop live with us or buy online — we purchase, pack, and deliver to your UK doorstep. 
+              Just pay item cost + hourly fee.
             </p>
             
             {/* CTA Buttons */}
@@ -123,14 +122,22 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Live indicator below buttons */}
-            <div className="flex items-center justify-center lg:justify-start mt-3 sm:mt-4">
+            {/* Live indicator and Contact CTA */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start mt-3 sm:mt-4 gap-3 sm:gap-4">
               <div className="flex items-center bg-[#aa2939]/10 px-3 py-1.5 rounded-full">
                 <div className="w-2 h-2 bg-[#aa2939] rounded-full animate-pulse mr-2"></div>
                 <span className="text-xs sm:text-sm text-[#aa2939] font-medium">
                   2,847 people shopping live
                 </span>
               </div>
+              
+              {/* Contact us link */}
+              <Link 
+                to="/contact" 
+                className="text-xs sm:text-sm text-gray-600 hover:text-[#09341c] font-medium underline underline-offset-2 hover:underline-offset-4 transition-all duration-200"
+              >
+                Contact us to get started!
+              </Link>
             </div>
           </div>
 
