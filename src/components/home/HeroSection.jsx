@@ -54,6 +54,14 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  // Function to handle WhatsApp redirect
+  const handleLiveShoppingClick = () => {
+    const whatsappNumber = "+923214660662";
+    const message = "Hi! I'm interested in live shopping. Can you help me get started?";
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="relative h-screen lg:h-[calc(100vh-80px)] mt-20 xs:mt-18 sm:mt-20 bg-gradient-to-br from-[#edefee] via-[#edefee] to-[#09341c]/10 overflow-hidden">
       {/* Background pattern - subtle geometric pattern */}
@@ -100,8 +108,9 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full justify-center lg:justify-start">
               
-              {/* Live Shopping Button */}
-              <Link to='/live-shopping'
+              {/* Live Shopping Button - Now opens WhatsApp */}
+              <button
+                onClick={handleLiveShoppingClick}
                 className="group relative px-[3vw] xs:px-6 sm:px-8 py-[1.5vh] xs:py-3.5 sm:py-4 bg-gradient-to-r from-[#aa2939] to-[#aa2939]/90 text-[#edefee] font-semibold rounded-full hover:from-[#aa2939]/90 hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center text-[2.5vw] xs:text-sm sm:text-base whitespace-nowrap overflow-hidden"
               >
                 {/* Animated background effect */}
@@ -110,7 +119,7 @@ export default function HeroSection() {
                 <FaVideo className="mr-2 w-[2vw] h-[2vw] xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 min-w-[12px] min-h-[12px] animate-pulse" />
                 Live Shopping Now
                 <div className="ml-2 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              </Link>
+              </button>
 
               {/* Buy For Me in Pakistan Button */}
               <Link to='/collections'
