@@ -344,79 +344,29 @@ export default function ContactForm() {
                 {/* Contact Information Sidebar */}
                 <div data-aos="fade-left" className="lg:col-span-2 order-1 lg:order-2">
                   <div className="info-card rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 hover-lift">
-                    <div className="flex items-center mb-4 sm:mb-6">
-                      <div className="p-2 sm:p-3 rounded-full mr-3 sm:mr-4" style={{ backgroundColor: '#aa2939' }}>
-                        <MapPin className="h-4 w-4 sm:h-5 md:h-6 w-5 md:w-6 text-white" />
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: '#aa2939' }}>
-                        Contact Information
-                      </h2>
-                    </div>
-
                     <div className="space-y-6 sm:space-y-8">
-                      {/* London Office */}
-                      <div className="border-l-4 pl-4 sm:pl-6" style={{ borderLeftColor: '#aa2939' }}>
-                        <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 flex items-center" style={{ color: '#aa2939' }}>
-                          🇬🇧 London Office
-                        </h3>
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="contact-info-item flex items-start">
-                            <MapPin className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 mt-1 flex-shrink-0" style={{ color: '#09341c' }} />
-                            <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Address</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">
-                                123 Fashion District<br />
-                                London W1F 8AB<br />
-                                United Kingdom
-                              </p>
-                            </div>
-                          </div>
-                          <div className="contact-info-item flex items-center">
-                            <Phone className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#09341c' }} />
-                            <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Phone</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">+44 20 7123 4567</p>
-                            </div>
-                          </div>
-                          <div className="contact-info-item flex items-center">
-                            <Clock className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#09341c' }} />
-                            <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Hours</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">Mon-Fri: 9:00-18:00 GMT</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                       {/* Lahore Workshop */}
                       <div className="border-l-4 pl-4 sm:pl-6" style={{ borderLeftColor: '#09341c' }}>
                         <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4 flex items-center" style={{ color: '#09341c' }}>
                           🇵🇰 Lahore Workshop
                         </h3>
                         <div className="space-y-2 sm:space-y-3">
-                          <div className="contact-info-item flex items-start">
-                            <MapPin className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 mt-1 flex-shrink-0" style={{ color: '#aa2939' }} />
-                            <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Address</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">
-                                Crafts Quarter, Liberty Market<br />
-                                Gulberg III, Lahore<br />
-                                Punjab, Pakistan
-                              </p>
-                            </div>
-                          </div>
                           <div className="contact-info-item flex items-center">
                             <Phone className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#aa2939' }} />
                             <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Phone</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">+92 42 3587 1234</p>
+                              <p className="text-gray-600 text-xs sm:text-sm">+92-(321)-4660662</p>
+                            </div>
+                          </div>
+                          <div className="contact-info-item flex items-center">
+                            <Mail className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#aa2939' }} />
+                            <div>
+                              <p className="text-gray-600 text-xs sm:text-sm">mateen.chma@gmail.com</p>
                             </div>
                           </div>
                           <div className="contact-info-item flex items-center">
                             <Clock className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#aa2939' }} />
                             <div>
-                              <p className="font-medium text-gray-800 text-sm sm:text-base">Hours</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">Mon-Sat: 10:00-19:00 PKT</p>
+                              <p className="text-gray-600 text-xs sm:text-sm">Mon-Sat: 10AM-8PM PKT</p>
                             </div>
                           </div>
                         </div>
@@ -432,7 +382,7 @@ export default function ContactForm() {
                             <Mail className="h-4 w-4 sm:h-5 w-5 mr-2 sm:mr-3 flex-shrink-0" style={{ color: '#09341c' }} />
                             <div>
                               <p className="font-medium text-gray-800 text-sm sm:text-base">Email</p>
-                              <p className="text-gray-600 text-xs sm:text-sm">info@yourcompany.com</p>
+                              <p className="text-gray-600 text-xs sm:text-sm">mateen.chma@gmail.com</p>
                             </div>
                           </div>
                           <div className="contact-info-item flex items-center">

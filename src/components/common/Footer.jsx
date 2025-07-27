@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaInstagram,
@@ -8,23 +7,42 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { GiSewingNeedle } from "react-icons/gi";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 export default function Footer() {
   useEffect(() => {
-    AOS.refresh();
+    const elements = document.querySelectorAll('[data-aos]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    });
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <footer
-      className="relative bg-gradient-to-br from-[#09341c] via-[#09341c]/90 to-[#aa2939] text-[#edefee] overflow-hidden"
-      style={{ 
-        maxHeight: "calc(100vh - 80px)", 
-        minHeight: "calc(100vh - 80px)",
-        paddingTop: "40px"
-      }}
-    >
+    <footer className="relative bg-gradient-to-br from-[#09341c] via-[#09341c]/90 to-[#aa2939] text-[#edefee] overflow-hidden">
+      <style jsx>{`
+        [data-aos="fade-up"] {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease-out;
+        }
+        [data-aos="fade-up"][data-aos-delay="100"] {
+          transition-delay: 0.1s;
+        }
+        [data-aos="fade-up"][data-aos-delay="200"] {
+          transition-delay: 0.2s;
+        }
+        .aos-animate {
+          opacity: 1 !important;
+          transform: translate(0) !important;
+        }
+      `}</style>
+
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -48,29 +66,29 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 py-2 sm:py-3 md:py-4 lg:py-6 h-full flex flex-col justify-between overflow-y-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 flex-grow text-center lg:text-left">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 py-8 sm:py-10 md:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 text-center lg:text-left">
           {/* Company Info */}
           <div data-aos="fade-up" className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <div className="flex items-center mb-2 sm:mb-3 md:mb-4 lg:mb-6">
+            <div className="flex items-center mb-4 sm:mb-5 md:mb-6 lg:mb-8">
               <div className="relative flex-shrink-0">
-                <GiSewingNeedle className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10 text-[#aa2939] transform rotate-45" />
-                <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 lg:w-3 lg:h-3 bg-[#09341c] rounded-full animate-pulse"></div>
+                <GiSewingNeedle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-[#aa2939] transform rotate-45" />
+                <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-[#09341c] rounded-full animate-pulse"></div>
               </div>
-              <div className="ml-2 sm:ml-3 min-w-0">
-                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold bg-gradient-to-r from-[#aa2939] to-[#09341c] bg-clip-text text-transparent block">
+              <div className="ml-3 sm:ml-4 min-w-0">
+                <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-[#aa2939] to-[#09341c] bg-clip-text text-transparent block">
                   SAMUNDAR PAAR
                 </span>
-                <p className="text-xs sm:text-sm text-[#edefee]/80 font-medium">
+                <p className="text-sm sm:text-base text-[#edefee]/80 font-medium">
                   Pakistan ↔ England
                 </p>
               </div>
             </div>
-            <p className="text-[#edefee]/90 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-relaxed text-xs sm:text-sm md:text-base max-w-md lg:max-w-none">
+            <p className="text-[#edefee]/90 mb-6 sm:mb-7 md:mb-8 lg:mb-10 leading-relaxed text-sm sm:text-base md:text-lg max-w-md lg:max-w-none">
               Weaving dreams across continents. Pakistani craftsmanship meets
               British elegance in every thread since 2020.
             </p>
-            <div className="flex space-x-2 sm:space-x-3 md:space-x-4 justify-center lg:justify-start">
+            <div className="flex space-x-3 sm:space-x-4 md:space-x-5 justify-center lg:justify-start">
               {[
                 { icon: FaFacebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61575261274532" },
                 { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/umairuk67?igsh=MWxjcGJzODk4cDF6ZA==" },
@@ -81,10 +99,10 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-[#09341c] to-[#09341c]/80 rounded-full flex items-center justify-center text-[#edefee] hover:from-[#aa2939] hover:to-[#aa2939]/80 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#aa2939] focus:ring-opacity-50"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#09341c] to-[#09341c]/80 rounded-full flex items-center justify-center text-[#edefee] hover:from-[#aa2939] hover:to-[#aa2939]/80 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#aa2939] focus:ring-opacity-50"
                   aria-label={label}
                 >
-                  <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 lg:h-5 lg:w-5" />
+                  <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5 md:h-5 md:w-5 lg:h-6 lg:w-6" />
                 </a>
               ))}
             </div>
@@ -92,22 +110,22 @@ export default function Footer() {
 
           {/* Location */}
           <div data-aos="fade-up" data-aos-delay="100" className="lg:col-span-1 flex flex-col items-center lg:items-start max-w-md mx-auto lg:mx-0 lg:max-w-none">
-            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-[#aa2939] flex items-center">
-              <span className="w-3 sm:w-4 md:w-5 lg:w-6 xl:w-8 h-0.5 bg-gradient-to-r from-[#aa2939] to-[#09341c] mr-2 sm:mr-3"></span>
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-[#aa2939] flex items-center">
+              <span className="w-4 sm:w-5 md:w-6 lg:w-8 xl:w-10 h-0.5 bg-gradient-to-r from-[#aa2939] to-[#09341c] mr-3 sm:mr-4"></span>
               Our Location
             </h3>
             
             {/* Pakistan */}
-            <div className="p-3 sm:p-4 md:p-5 lg:p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-[#09341c]/30 hover:border-[#09341c]/50 transition-all duration-300 w-full">
+            <div className="p-4 sm:p-5 md:p-6 lg:p-8 bg-white/10 backdrop-blur-sm rounded-lg border border-[#09341c]/30 hover:border-[#09341c]/50 transition-all duration-300 w-full">
               <div className="flex items-start">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-[#09341c] to-[#09341c]/80 rounded-full flex items-center justify-center mr-3 sm:mr-4 mt-0.5 flex-shrink-0">
-                  <span className="text-[#edefee] text-sm sm:text-base">🇵🇰</span>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-[#09341c] to-[#09341c]/80 rounded-full flex items-center justify-center mr-4 sm:mr-5 mt-0.5 flex-shrink-0">
+                  <span className="text-[#edefee] text-base sm:text-lg">🇵🇰</span>
                 </div>
                 <div className="min-w-0 flex-1 text-left">
-                  <p className="font-semibold text-[#09341c] text-sm sm:text-base md:text-lg">
+                  <p className="font-semibold text-[#09341c] text-base sm:text-lg md:text-xl">
                     Lahore, Pakistan
                   </p>
-                  <p className="text-[#edefee]/70 text-xs sm:text-sm mt-1 sm:mt-2">
+                  <p className="text-[#edefee]/70 text-sm sm:text-base mt-2">
                     Main Office & Production
                   </p>
                 </div>
@@ -117,11 +135,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div data-aos="fade-up" data-aos-delay="200" className="lg:col-span-1 sm:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start">
-            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-[#09341c] flex items-center">
-              <span className="w-3 sm:w-4 md:w-5 lg:w-6 xl:w-8 h-0.5 bg-gradient-to-r from-[#09341c] to-[#aa2939] mr-2 sm:mr-3"></span>
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-[#09341c] flex items-center">
+              <span className="w-4 sm:w-5 md:w-6 lg:w-8 xl:w-10 h-0.5 bg-gradient-to-r from-[#09341c] to-[#aa2939] mr-3 sm:mr-4"></span>
               Quick Links
             </h3>
-            <ul className="space-y-1 sm:space-y-2 md:space-y-3 text-center lg:text-left">
+            <ul className="space-y-2 sm:space-y-3 md:space-y-4 text-center lg:text-left">
               {[
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About Us" },
@@ -130,13 +148,13 @@ export default function Footer() {
                 { to: "/contact", label: "Contact" },
               ].map((link, idx) => (
                 <li key={idx}>
-                  <Link
-                    to={link.to}
-                    className="text-[#edefee]/90 hover:text-[#aa2939] transition-colors duration-200 flex items-center group text-xs sm:text-sm md:text-base focus:outline-none focus:text-[#aa2939] justify-center lg:justify-start"
+                  <a
+                    href={link.to}
+                    className="text-[#edefee]/90 hover:text-[#aa2939] transition-colors duration-200 flex items-center group text-sm sm:text-base md:text-lg focus:outline-none focus:text-[#aa2939] justify-center lg:justify-start"
                   >
-                    <span className="w-0 group-hover:w-2 sm:group-hover:w-3 md:group-hover:w-4 h-0.5 bg-gradient-to-r from-[#09341c] to-[#aa2939] mr-0 group-hover:mr-1 sm:group-hover:mr-2 transition-all duration-300"></span>
+                    <span className="w-0 group-hover:w-3 sm:group-hover:w-4 md:group-hover:w-5 h-0.5 bg-gradient-to-r from-[#09341c] to-[#aa2939] mr-0 group-hover:mr-2 sm:group-hover:mr-3 transition-all duration-300"></span>
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -144,23 +162,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-[#edefee]/20 mt-3 sm:mt-4 md:mt-6 lg:mt-8 pt-2 sm:pt-3 md:pt-4 lg:pt-6 flex-shrink-0">
-          <div className="flex flex-col items-center text-center space-y-2 sm:space-y-3">
+        <div className="border-t border-[#edefee]/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-6 sm:pt-8 md:pt-10 lg:pt-12">
+          <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5">
             <div className="flex flex-col sm:flex-row items-center text-center sm:text-left">
-              <p className="text-[#edefee]/80 text-xs sm:text-sm">© 2025 Samundar Paar. Crafted with</p>
-              <span className="mx-1 sm:mx-2 text-[#aa2939] animate-pulse">♥</span>
-              <p className="text-[#edefee]/80 text-xs sm:text-sm">across two nations.</p>
+              <p className="text-[#edefee]/80 text-sm sm:text-base">© 2025 Samundar Paar. Crafted with</p>
+              <span className="mx-2 sm:mx-3 text-[#aa2939] animate-pulse text-lg">♥</span>
+              <p className="text-[#edefee]/80 text-sm sm:text-base">across two nations.</p>
             </div>
             
             <div className="text-center">
-              <p className="text-[#edefee]/70 text-xs sm:text-sm italic leading-relaxed max-w-2xl mx-auto">
+              <p className="text-[#edefee]/70 text-sm sm:text-base italic leading-relaxed max-w-2xl mx-auto">
                 "Celebrating the rich heritage of Pakistani craftsmanship and
                 British design excellence"
               </p>
-              <div className="flex justify-center items-center mt-1 sm:mt-2 space-x-2">
-                <span className="text-[#09341c] text-xs sm:text-sm md:text-base lg:text-lg">🌙</span>
-                <span className="text-[#edefee]/60 text-xs">•</span>
-                <span className="text-[#aa2939] text-xs sm:text-sm md:text-base lg:text-lg">👑</span>
+              <div className="flex justify-center items-center mt-3 sm:mt-4 space-x-3">
+                <span className="text-[#09341c] text-lg sm:text-xl md:text-2xl">🌙</span>
+                <span className="text-[#edefee]/60 text-sm">•</span>
+                <span className="text-[#aa2939] text-lg sm:text-xl md:text-2xl">👑</span>
               </div>
             </div>
           </div>

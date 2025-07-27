@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Collections from "./pages/Collections";
+import FloatingContactButtons from "./components/common/FloatingContactButtons";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/collections" element={<Collections />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <FloatingContactButtons />
     <Footer/>
     </BrowserRouter>
   );

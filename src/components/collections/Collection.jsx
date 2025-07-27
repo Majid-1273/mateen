@@ -133,21 +133,21 @@ const Collection = () => {
         </div>
 
         {/* Brand Cards */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6 lg:gap-8 px-2 sm:px-4">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 px-2 sm:px-4">
           {brands[selectedCategory]?.[selectedGender]?.map((brand, index) => (
             <div
               key={index}
               onClick={() => handleBrandClick(brand.website)}
-              className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-500 cursor-pointer border-2 border-transparent hover:border-[#aa2939]/20 hover:bg-gradient-to-br hover:from-white hover:to-[#edefee]/50"
+              className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 cursor-pointer border-2 border-transparent hover:border-[#aa2939]/20 hover:bg-gradient-to-br hover:from-white hover:to-[#edefee]/50 w-full sm:w-60 md:w-64 lg:w-72 xl:w-80 flex-shrink-0"
             >
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 sm:mb-5 md:mb-6 group-hover:scale-110 transition-transform duration-300">
                   {brand.logo}
                 </div>
-                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 group-hover:text-[#09341c] transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 sm:mb-5 md:mb-6 group-hover:text-[#09341c] transition-colors duration-300 leading-tight">
                   {brand.name}
                 </h3>
-                <div className="bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-full text-xs sm:text-sm md:text-base font-medium group-hover:from-[#09341c] group-hover:to-[#aa2939] transition-all duration-300 shadow-md group-hover:shadow-lg transform group-hover:scale-105">
+                <div className="bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base md:text-lg font-medium group-hover:from-[#09341c] group-hover:to-[#aa2939] transition-all duration-300 shadow-md group-hover:shadow-lg transform group-hover:scale-105">
                   Visit Store →
                 </div>
               </div>
