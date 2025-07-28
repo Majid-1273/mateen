@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import logoImage from "../../data/images/samundar paar.png";
@@ -29,7 +30,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <a href="/" className="flex-shrink-0 flex items-center group">
+            <Link to="/" className="flex-shrink-0 flex items-center group">
               <div className="relative h-18 w-18 mr-3">
                 <div className="absolute inset-0 rounded-full flex items-center justify-center overflow-hidden">
                   <img 
@@ -45,30 +46,30 @@ export default function Navbar() {
                 </span>
                 <span className="text-xs text-gray-600 font-medium">Pakistan ↔ England</span>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
+            <Link to="/" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="/about" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
+            </Link>
+            <Link to="/about" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="/services" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
+            </Link>
+            <Link to="/services" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
               Services
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="/collections" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
+            </Link>
+            <Link to="/collections" className="text-green-900 hover:text-red-700 px-3 py-2 font-medium transition-colors duration-200 relative group">
               Collections
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-800 to-red-700 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="/contact" className="px-6 py-2 font-medium text-white bg-gradient-to-r from-green-800 to-red-700 rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            </Link>
+            <Link to="/contact" className="px-6 py-2 font-medium text-white bg-gradient-to-r from-green-800 to-red-700 rounded-full hover:from-red-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* Cultural symbols and social icons */}
@@ -126,21 +127,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t-2 border-gradient-to-r from-green-800 to-red-700 pt-2 pb-4 px-2 space-y-1 sm:px-3 shadow-lg">
           <div className="border-l-4 border-gradient-to-b from-green-800 to-red-700 pl-4 space-y-1">
-            <a href="/" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+            <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Home
-            </a>
-            <a href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+            </Link>
+            <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               About
-            </a>
-            <a href="/services" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+            </Link>
+            <Link to="/services" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Services
-            </a>
-            <a href="/collections" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+            </Link>
+            <Link to="/collections" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Collections
-            </a>
-            <a href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
+            </Link>
+            <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-green-900 hover:bg-gradient-to-r hover:from-green-50 hover:to-red-50 hover:text-red-700 transition-all duration-200">
               Contact
-            </a>
+            </Link>
           </div>
 
           <div className="flex justify-between items-center px-3 py-4 mt-4 border-t border-gray-200">
