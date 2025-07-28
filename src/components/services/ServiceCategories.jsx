@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { ShoppingBag, Video, Package, Globe, ExternalLink, Star, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import BrandLinkModal from '../common/BrandLinkModal';
 
 const ServiceCategories = () => {
   const [activeFilter, setActiveFilter] = useState('fashion');
   const [visibleServices, setVisibleServices] = useState(6);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
   const services = [
     {
@@ -15,7 +19,7 @@ const ServiceCategories = () => {
       brands: [
         { name: "Sana Safinaz", website: "https://www.sanasafinaz.com", specialty: "Luxury Fashion" },
         { name: "Maria B", website: "https://www.mariab.pk", specialty: "Designer Wear" },
-        { name: "Gul Ahmed", website: "https://www.gulahmad.com", specialty: "Premium Textiles" }
+        { name: "Gul Ahmed", website: "https://www.gulahmedshop.com", specialty: "Premium Textiles" }
       ]
     },
     {
@@ -27,7 +31,7 @@ const ServiceCategories = () => {
       reverse: true,
       brands: [
         { name: "Borjan", website: "https://www.borjan.com.pk", specialty: "Contemporary Footwear" },
-        { name: "Servis", website: "https://www.servis.com.pk", specialty: "Quality Shoes" },
+        { name: "Servis", website: "https://servis.pk", specialty: "Quality Shoes" },
         { name: "Bata Pakistan", website: "https://www.bata.com.pk", specialty: "Everyday Footwear" },
         { name: "Metro Shoes", website: "https://www.metro.pk", specialty: "Fashion Footwear" }
       ]
@@ -39,8 +43,8 @@ const ServiceCategories = () => {
       category: "accessories",
       image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop&crop=center",
       brands: [
-        { name: "Tarz", website: "https://www.tarz.pk", specialty: "Fashion Accessories" },
-        { name: "Maheen Karim", website: "https://www.maheenkarim.com", specialty: "Luxury Jewelry" },
+        { name: "Tarz", website: "https://tarzbytahira.com", specialty: "Fashion Accessories" },
+        { name: "Maheen Karim", website: "https://maheenkarim.com.pk", specialty: "Luxury Jewelry" },
         { name: "CrossStitch", website: "https://www.crossstitch.pk", specialty: "Bags & Accessories" },
         { name: "Sapphire", website: "https://www.sapphireonline.pk", specialty: "Complete Lifestyle" }
       ]
@@ -55,7 +59,7 @@ const ServiceCategories = () => {
       brands: [
         { name: "Ideas by Gul Ahmed", website: "https://www.ideas.com.pk", specialty: "Home Textiles" },
         { name: "Interwood", website: "https://www.interwood.pk", specialty: "Furniture & Decor" },
-        { name: "Habitt", website: "https://www.habitt.pk", specialty: "Modern Home Solutions" },
+        { name: "Habitt", website: "https://habitt.com", specialty: "Modern Home Solutions" },
         { name: "ChenOne", website: "https://www.chenone.com", specialty: "Home & Lifestyle" }
       ]
     }
@@ -71,11 +75,25 @@ const ServiceCategories = () => {
   const filteredServices = services.filter(service => service.category === activeFilter);
 
   const handleContactUs = () => {
-    window.open('mailto:mateen.chma@gmail.com?subject=Product Inquiry - Shopping from Pakistan', '_blank');
+    // Navigate to contact page
+    window.location.href = '/contact';
   };
 
   const handleLiveShopping = () => {
-    window.open('https://wa.me/923214660662?text=Hi! I would like to book a live shopping session from Pakistan.', '_blank');
+    const whatsappNumber = "+923214660662";
+    const message = "Hi! I would like to book a live shopping session from Pakistan.";
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleBrandClick = (brand) => {
+    setSelectedBrand(brand);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedBrand(null);
   };
 
   const ServiceCard = ({ title, description, icon, image, reverse, brands, category }) => (
@@ -141,12 +159,10 @@ const ServiceCategories = () => {
               </h4>
               <div className="grid grid-cols-1 gap-2">
                 {brands.map((brand, idx) => (
-                  <a
+                  <button
                     key={idx}
-                    href={brand.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-2 sm:p-3 rounded-lg hover:shadow-md transition-all duration-200 group"
+                    onClick={() => handleBrandClick(brand)}
+                    className="flex items-center justify-between p-2 sm:p-3 rounded-lg hover:shadow-md transition-all duration-200 group w-full text-left"
                     style={{ 
                       backgroundColor: 'rgba(9, 52, 28, 0.05)',
                       borderColor: 'rgba(9, 52, 28, 0.1)'
@@ -159,7 +175,7 @@ const ServiceCategories = () => {
                       <div className="text-xs" style={{ color: '#09341c', opacity: 0.6 }}>{brand.specialty}</div>
                     </div>
                     <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" style={{ color: '#aa2939' }} />
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -318,6 +334,14 @@ const ServiceCategories = () => {
           background: linear-gradient(to bottom, #0a3f20, #b82e43);
         }
       `}</style>
+
+      <BrandLinkModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        brandName={selectedBrand?.name}
+        brandWebsite={selectedBrand?.website}
+        brandSpecialty={selectedBrand?.specialty}
+      />
     </div>
   );
 };

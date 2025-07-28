@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Sparkles, Video, ShoppingBag, Globe, Clock, Users, Star, ArrowRight, Calendar, Package, Truck, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Process Section Component
 const ProcessSection = () => {
@@ -103,16 +104,18 @@ const ProcessSection = () => {
 
         {/* Call to action section */}
         <div className="text-center mt-12 sm:mt-16 lg:mt-20">
-          <button 
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base"
-            style={{ 
-              background: `linear-gradient(135deg, #aa2939 0%, #09341c 100%)` 
-            }}
-          >
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-            Start Your Shopping Journey
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-          </button>
+          <Link to="/collections">
+            <button 
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base"
+              style={{ 
+                background: `linear-gradient(135deg, #aa2939 0%, #09341c 100%)` 
+              }}
+            >
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+              Start Your Shopping Journey
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </Link>
           
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm" style={{ color: '#09341c', opacity: 0.7 }}>
             Trusted by thousands of customers across England

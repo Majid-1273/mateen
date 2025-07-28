@@ -1,5 +1,12 @@
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+
 // Hero Banner Component
 const HeroBanner = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] bg-gradient-to-br from-[#edefee] via-white to-[#aa2939]/10 flex items-center justify-center relative overflow-hidden py-6 sm:py-8 md:py-12 lg:py-16">
       {/* Floating decorative elements */}
@@ -30,12 +37,18 @@ const HeroBanner = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-            <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full hover:from-[#09341c] hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
+            <button 
+              onClick={scrollToTop}
+              className="w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full hover:from-[#09341c] hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1"
+            >
               Start Shopping Now 🛍️
             </button>
-            <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 bg-white/90 text-[#09341c] text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full border-2 border-[#aa2939]/20 hover:bg-gradient-to-r hover:from-[#aa2939]/10 hover:to-[#09341c]/10 hover:border-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <Link 
+              to="/about"
+              className="w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 bg-white/90 text-[#09341c] text-sm sm:text-base md:text-lg lg:text-xl font-bold rounded-full border-2 border-[#aa2939]/20 hover:bg-gradient-to-r hover:from-[#aa2939]/10 hover:to-[#09341c]/10 hover:border-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               Learn More 📖
-            </button>
+            </Link>
           </div>
           
           {/* Service Cards */}

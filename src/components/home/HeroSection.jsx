@@ -5,34 +5,43 @@ import { Link } from "react-router-dom";
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Carousel images data
+  // Carousel images data - using local images from data/images folder
   const carouselImages = [
     {
-      main: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      fallback: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      main: "/src/data/images/Image_fx.jpg",
+      fallback: "/src/data/images/Image_fx (1).jpg",
       alt: "Master textile artisan at work",
-      pakistaniOverlay: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      pakistaniFallback: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishOverlay: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishFallback: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+      pakistaniOverlay: "/src/data/images/Image_fx (3).jpg",
+      pakistaniFallback: "/src/data/images/Image_fx (4).jpg",
+      englishOverlay: "/src/data/images/Image_fx (5).jpg",
+      englishFallback: "/src/data/images/Image_fx (6).jpg"
     },
     {
-      main: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      fallback: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      main: "/src/data/images/Image_fx (7).jpg",
+      fallback: "/src/data/images/Image_fx (6).jpg",
       alt: "Traditional textile craftsmanship",
-      pakistaniOverlay: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      pakistaniFallback: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishOverlay: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishFallback: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+      pakistaniOverlay: "/src/data/images/Image_fx (3).jpg",
+      pakistaniFallback: "/src/data/images/Image_fx (4).jpg",
+      englishOverlay: "/src/data/images/Image_fx (5).jpg",
+      englishFallback: "/src/data/images/Image_fx (6).jpg"
     },
     {
-      main: "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      fallback: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      alt: "Luxury fabric collection",
-      pakistaniOverlay: "https://images.unsplash.com/photo-1583391733956-6c78276477e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      pakistaniFallback: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishOverlay: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
-      englishFallback: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+      main: "/src/data/images/Image_fx (3).jpg",
+      fallback: "/src/data/images/Image_fx (4).jpg",
+      alt: "Artisan textile work",
+      pakistaniOverlay: "/src/data/images/Image_fx (5).jpg",
+      pakistaniFallback: "/src/data/images/Image_fx (6).jpg",
+      englishOverlay: "/src/data/images/Image_fx (7).jpg",
+      englishFallback: "/src/data/images/Image_fx (8).jpg"
+    },
+    {
+      main: "/src/data/images/Image_fx (5).jpg",
+      fallback: "/src/data/images/Image_fx (6).jpg",
+      alt: "Traditional craftsmanship",
+      pakistaniOverlay: "/src/data/images/Image_fx (7).jpg",
+      pakistaniFallback: "/src/data/images/Image_fx (8).jpg",
+      englishOverlay: "/src/data/images/Image_fx (9).jpg",
+      englishFallback: "/src/data/images/Image_fx (10).jpg"
     }
   ];
 

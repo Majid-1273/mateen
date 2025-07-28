@@ -1,5 +1,12 @@
 // About Section Component
 const AboutSection = () => {
+  const handleWhatsAppClick = () => {
+    const whatsappNumber = "+923214660662";
+    const message = "Hi! I'm interested in starting my shopping journey with your services. Can you help me get started?";
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] bg-gradient-to-br from-[#edefee] via-white to-[#aa2939]/10 py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 flex items-center">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 w-full max-w-7xl">
@@ -37,7 +44,10 @@ const AboutSection = () => {
                 
                 {/* Call to Action */}
                 <div className="mt-6 sm:mt-8 md:mt-10">
-                  <button className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] text-sm sm:text-base md:text-lg font-bold rounded-full hover:from-[#09341c] hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
+                  <button 
+                    onClick={handleWhatsAppClick}
+                    className="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-gradient-to-r from-[#aa2939] to-[#09341c] text-[#edefee] text-sm sm:text-base md:text-lg font-bold rounded-full hover:from-[#09341c] hover:to-[#aa2939] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1"
+                  >
                     Start Your Journey 🌟
                   </button>
                 </div>
@@ -116,45 +126,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Stats Section */}
-          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20">
-            <div className="bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg border border-white/30">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-                <div className="text-center group cursor-pointer">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#aa2939] to-[#09341c] bg-clip-text text-transparent mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                    50+
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
-                    Partner Brands
-                  </div>
-                </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#09341c] to-[#aa2939] bg-clip-text text-transparent mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                    25+
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
-                    Countries
-                  </div>
-                </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#aa2939] to-[#09341c] bg-clip-text text-transparent mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                    5k+
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
-                    Happy Customers
-                  </div>
-                </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#09341c] to-[#aa2939] bg-clip-text text-transparent mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
-                    98%
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
-                    Satisfaction
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

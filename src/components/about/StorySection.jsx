@@ -49,7 +49,7 @@ const StorySection = () => {
             >
               <div className="relative overflow-hidden rounded-xl mb-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1583391733956-6c78276477e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="/src/data/images/Image_fx (10).jpg" 
                   alt="Traditional Pakistani fashion" 
                   className="w-full h-48 sm:h-56 md:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
                 />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Sparkles, Video, ShoppingBag, Globe, Clock, Users, Star, ArrowRight, Calendar, Package, Truck, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Hero Section Component
 const HeroSection = () => {
@@ -15,6 +16,14 @@ const HeroSection = () => {
       }, index * 100);
     });
   }, []);
+
+  // Function to handle WhatsApp redirect
+  const handleLiveShoppingClick = () => {
+    const whatsappNumber = "+923214660662";
+    const message = "Hi! I'm interested in live shopping. Can you help me get started?";
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div>
@@ -247,17 +256,17 @@ const HeroSection = () => {
             </div>
 
             <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-2" data-aos="zoom-in" data-aos-delay="400">
-              <button className="hero-btn hero-btn-primary group px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transform shadow-lg hover:shadow-xl flex items-center space-x-2 justify-center text-sm sm:text-base">
+              <button className="hero-btn hero-btn-primary group px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transform shadow-lg hover:shadow-xl flex items-center space-x-2 justify-center text-sm sm:text-base" onClick={handleLiveShoppingClick}>
                 <Video className="w-4 h-4 sm:w-5 h-5" />
                 <span>Book Live Shopping</span>
                 <ArrowRight className="w-3 h-3 sm:w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               
-              <button className="hero-btn hero-btn-secondary group px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transform flex items-center space-x-2 justify-center text-sm sm:text-base">
+              <Link to="/services" className="hero-btn hero-btn-secondary group px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transform flex items-center space-x-2 justify-center text-sm sm:text-base">
                 <ShoppingBag className="w-4 h-4 sm:w-5 h-5" />
                 <span>Explore Services</span>
                 <ArrowRight className="w-3 h-3 sm:w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
