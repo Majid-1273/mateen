@@ -1,59 +1,54 @@
 import React, { useState } from 'react';
+import BrandLinkModal from '../common/BrandLinkModal';
 
 // Brand data with Pakistani brands
 const brands = {
   "Fashion & Apparel": {
     men: [
-      { name: "Gul Ahmed", logo: "👔", website: "https://www.gulahmedshop.com/men" },
-      { name: "Junaid Jamshed", logo: "🕴️", website: "https://www.jj.com.pk/men" },
-      { name: "Bonanza Satrangi", logo: "👨", website: "https://www.bonanzasatrangi.com/men" },
-      { name: "Alkaram Studio", logo: "🎽", website: "https://www.alkaramstudio.com/men" }
+      { name: "Gul Ahmed", logo: "👔", website: "https://www.gulahmedshop.com/mens-clothes", specialty: "Premium Pakistani Fashion" },
+      { name: "Bonanza Satrangi", logo: "👨", website: "https://bonanzasatrangi.com/collections/men", specialty: "Contemporary Fashion" },
+      { name: "Alkaram Studio", logo: "🎽", website: "https://www.alkaramstudio.com/collections/man", specialty: "Traditional Wear" }
     ],
     women: [
-      { name: "Gul Ahmed", logo: "🌸", website: "https://www.gulahmedshop.com/women" },
-      { name: "Sana Safinaz", logo: "💃", website: "https://www.sanasafinaz.com/women" },
-      { name: "Alkaram Studio", logo: "👚", website: "https://www.alkaramstudio.com/women" },
-      { name: "Nishat Linen", logo: "🌺", website: "https://www.nishatlinen.com/women" }
+      { name: "Gul Ahmed", logo: "🌸", website: "https://www.gulahmedshop.com/women", specialty: "Premium Pakistani Fashion" },
+      { name: "Alkaram Studio", logo: "👚", website: "https://www.alkaramstudio.com/", specialty: "Traditional Wear" },
+      { name: "Nishat Linen", logo: "🌺", website: "https://nishatlinen.com/collections/women", specialty: "Linen Collection" }
     ],
     children: [
-      { name: "Gul Ahmed Kids", logo: "🧸", website: "https://www.gulahmedshop.com/kids" },
-      { name: "Junaid Jamshed Kids", logo: "👦", website: "https://www.jj.com.pk/kids" }
+      { name: "Gul Ahmed Kids", logo: "🧸", website: "https://www.gulahmedshop.com/kids", specialty: "Kids Fashion" }
     ]
   },
   "Footwear": {
     men: [
-      { name: "Servis", logo: "👞", website: "https://www.servis.com.pk/men-shoes" },
-      { name: "Bata", logo: "🥿", website: "https://www.bata.com.pk/men" },
-      { name: "Hush Puppies", logo: "👟", website: "https://www.hushpuppies.com.pk/men" }
+      { name: "Servis", logo: "👞", website: "https://servis.pk/collections/men-shoes-sale", specialty: "Quality Footwear" },
+      { name: "Bata", logo: "🥿", website: "https://www.bata.com.pk/collections/men-collection", specialty: "Comfortable Shoes" },
+      { name: "Hush Puppies", logo: "👟", website: "https://www.hushpuppies.com.pk/collections/men-collections-all", specialty: "Casual Footwear" }
     ],
     women: [
-      { name: "Servis", logo: "👠", website: "https://www.servis.com.pk/women-shoes" },
-      { name: "Bata", logo: "👡", website: "https://www.bata.com.pk/women" },
-      { name: "Metro Shoes", logo: "🩰", website: "https://www.metro.pk/women" }
+      { name: "Servis", logo: "👠", website: "https://servis.pk/collections/women", specialty: "Quality Footwear" },
+      { name: "Bata", logo: "👡", website: "https://www.bata.com.pk/collections/women-collection", specialty: "Comfortable Shoes" },
+      { name: "Hush Puppies", logo: "🩰", website: "https://www.hushpuppies.com.pk/collections/women-all", specialty: "Fashion Footwear" }
     ],
     children: [
-      { name: "Bata Kids", logo: "👟", website: "https://www.bata.com.pk/kids" },
-      { name: "Servis Kids", logo: "👶", website: "https://www.servis.com.pk/kids" }
+      { name: "Bata Kids", logo: "👟", website: "https://www.bata.com.pk/collections/kids-new-1", specialty: "Kids Shoes" },
+      { name: "Servis Kids", logo: "👶", website: "https://servis.pk/collections/kids-1", specialty: "Quality Kids Footwear" }
     ]
   },
   "Accessories": {
     men: [
-      { name: "Ideas", logo: "👜", website: "https://www.ideas.com.pk/men-accessories" },
-      { name: "Outfitters", logo: "🎒", website: "https://www.outfitters.com.pk/men/accessories" }
+      { name: "Gul Ahmed", logo: "👜", website: "https://www.gulahmedshop.com/mens-clothes", specialty: "Fashion Accessories" },
+      { name: "Outfitters", logo: "🎒", website: "https://outfitters.com.pk/", specialty: "Lifestyle Accessories" }
     ],
     women: [
-      { name: "Ideas", logo: "👛", website: "https://www.ideas.com.pk/women-accessories" },
-      { name: "Accessorize", logo: "💎", website: "https://www.accessorize.com.pk/women" }
+      { name: "Gul Ahmed", logo: "👛", website: "https://www.gulahmedshop.com/", specialty: "Fashion Accessories" }
     ],
     children: [
-      { name: "Ideas Kids", logo: "🎀", website: "https://www.ideas.com.pk/kids-accessories" }
+      { name: "Ideas Kids", logo: "🎀", website: "https://www.gulahmedshop.com/kids", specialty: "Kids Accessories" }
     ]
   },
   "Home & Living": {
     all: [
-      { name: "Ideas Home", logo: "🏠", website: "https://www.ideas.com.pk/home" },
-      { name: "Khaadi Home", logo: "🛋️", website: "https://www.khaadi.com/pk/home" },
-      { name: "Gul Ahmed Home", logo: "🏡", website: "https://www.gulahmedshop.com/home" }
+      { name: "Ideas Home", logo: "🏠", website: "https://www.gulahmedshop.com/ideas-home", specialty: "Home Accessories" }
     ]
   }
 };
@@ -62,6 +57,8 @@ const brands = {
 const Collection = () => {
   const [selectedCategory, setSelectedCategory] = useState("Fashion & Apparel");
   const [selectedGender, setSelectedGender] = useState("men");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState(null);
 
   const categories = ["Fashion & Apparel", "Footwear", "Accessories", "Home & Living"];
   
@@ -70,8 +67,14 @@ const Collection = () => {
     return ["men", "women", "children"];
   };
 
-  const handleBrandClick = (website) => {
-    window.open(website, '_blank');
+  const handleBrandClick = (brand) => {
+    setSelectedBrand(brand);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedBrand(null);
   };
 
   return (
@@ -137,7 +140,7 @@ const Collection = () => {
           {brands[selectedCategory]?.[selectedGender]?.map((brand, index) => (
             <div
               key={index}
-              onClick={() => handleBrandClick(brand.website)}
+              onClick={() => handleBrandClick(brand)}
               className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 cursor-pointer border-2 border-transparent hover:border-[#aa2939]/20 hover:bg-gradient-to-br hover:from-white hover:to-[#edefee]/50 w-full sm:w-60 md:w-64 lg:w-72 xl:w-80 flex-shrink-0"
             >
               <div className="text-center">
@@ -180,6 +183,15 @@ const Collection = () => {
           </div>
         </div>
       </div>
+
+      {/* Brand Link Modal */}
+      <BrandLinkModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        brandName={selectedBrand?.name}
+        brandWebsite={selectedBrand?.website}
+        brandSpecialty={selectedBrand?.specialty}
+      />
     </div>
   );
 };

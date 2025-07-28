@@ -10,60 +10,60 @@ export default function Collections() {
     "fashion-apparel": {
       title: "Fashion & Apparel",
       description: "From formal wear to festive styles — discover Pakistan's finest stitched and unstitched clothing, tailored for every occasion.",
-      image: "https://images.unsplash.com/photo-1602810319252-6846b96b6b36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/src/data/images/a-dramatic-studio-portrait-showcases-a-s_B1sQ_mxlR-arr2TNoH3rSw_tH_wW2HCRzu0TCp_8_R21w.jpeg",
       items: [
         { 
           name: "Luxury Lawn Suit", 
-          image: "https://images.unsplash.com/photo-1622442002011-c8c6cb4b5b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          image: "/src/data/images/a-dramatic-studio-portrait-showcases-a-s_B1sQ_mxlR-arr2TNoH3rSw_tH_wW2HCRzu0TCp_8_R21w.jpeg"
         },
         { 
           name: "Festive Bridal Wear", 
-          image: "https://images.unsplash.com/photo-1645027100841-11cc3e9db3e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+          image: "/src/data/images/a-photograph-of-an-unstitched-pakistani-_zdqjyO8lQHato_5pIT3F3g_pb18A4V4RIeEp05L8JAu-g.jpeg"
         }
       ]
     },
     "footwear": {
       title: "Footwear",
       description: "From traditional khussas to premium leather shoes — step into comfort and style rooted in Pakistani craftsmanship.",
-      image: "https://images.unsplash.com/photo-1628452380973-4f4d46a1f9e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/src/data/images/a-close-up-product-photograph-of-a-pair-_0Gl4PXuhQLSfur6F3Hgn5g_3WeCpK5BTEKgVVyReLIAaQ.jpeg",
       items: [
         { 
           name: "Classic Khussa", 
-          image: "https://images.unsplash.com/photo-1601327710713-55fbbe32a3cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-product-photograph-showcasing-a-pair-o_Y7TrWplXS3m03LaHK0ixXw_0ZTMDyryQnmzXTjBuQj4EQ.jpeg" 
         },
         { 
           name: "Leather Loafers", 
-          image: "https://images.unsplash.com/photo-1621408683474-5d91c32d929c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-photograph-of-a-carefully-curated-coll_KukkkcGnRwalfj3-fx-_CA_bR1Io50cSfKkwgr88K37eA.jpeg" 
         }
       ]
     },
     "accessories": {
       title: "Accessories",
       description: "Complete your look with handcrafted Pakistani accessories — from shawls to bags and statement jewelry.",
-      image: "https://images.unsplash.com/photo-1610621182419-94b9958405df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/src/data/images/a-photograph-of-a-curated-collection-of-_g3beQ3w4TpW683_-NuLfSA_LVc__P8xSZaFpRDNJus9HQ.jpeg",
       items: [
         { 
           name: "Pashmina Shawl", 
-          image: "https://images.unsplash.com/photo-1631037617444-72b97c3f4df7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-photograph-of-a-curated-collection-of-_g3beQ3w4TpW683_-NuLfSA_LVc__P8xSZaFpRDNJus9HQ.jpeg" 
         },
         { 
           name: "Embroidered Clutch", 
-          image: "https://images.unsplash.com/photo-1620912189861-0ee57c914cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-photograph-of-an-elegant-pakistani-clu_lsJAK0MNSh6W2kHZ-rtHFw_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
         }
       ]
     },
     "home-living": {
       title: "Home & Living",
       description: "Bring Pakistani artistry into your space — explore textiles, décor, and handmade pieces for every corner of your home.",
-      image: "https://images.unsplash.com/photo-1625811381464-c19ecfdf3ab7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/src/data/images/a-photograph-of-a-meticulously-curated-c_ZYCnGiHARwaCb2LdVlOtXw_LVc__P8xSZaFpRDNJus9HQ.jpeg",
       items: [
         { 
           name: "Block Print Cushion", 
-          image: "https://images.unsplash.com/photo-1625811381464-c19ecfdf3ab7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-photograph-of-a-meticulously-curated-c_ZYCnGiHARwaCb2LdVlOtXw_LVc__P8xSZaFpRDNJus9HQ.jpeg" 
         },
         { 
           name: "Brass Wall Decor", 
-          image: "https://images.unsplash.com/photo-1605864671556-1ba1f8f8c9c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+          image: "/src/data/images/a-close-up-photograph-of-a-luxurious-pak_1pP4RmkKQrGBt505j95PaA_fqj7vHsWT5irb8grv8sjdg.jpeg" 
         }
       ]
     }
@@ -177,6 +177,9 @@ export default function Collections() {
                       src={item.image} 
                       alt={item.name} 
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      style={{
+                        objectPosition: activeCollection === "fashion-apparel" && index === 0 ? "center 30%" : "center"
+                      }}
                       onError={(e) => {
                         e.target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80";
                       }}

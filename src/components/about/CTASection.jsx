@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Sparkles, Video, ShoppingBag, Globe, Clock, Users, Star, ArrowRight, Calendar, Package, Truck, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // CTA Section Component
 const CTASection = () => {
+  // Function to handle WhatsApp redirect
+  const handleLiveShoppingClick = () => {
+    const whatsappNumber = "+923214660662";
+    const message = "Hi! I'm interested in booking a live shopping session. Can you help me get started?";
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-[#edefee] overflow-hidden">
       {/* Decorative background elements */}
@@ -40,17 +49,17 @@ const CTASection = () => {
         
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-8 justify-center mb-10 sm:mb-12 md:mb-14 lg:mb-16 xl:mb-20 px-2 sm:px-0">
-          <button className="group bg-gradient-to-r from-[#aa2939] to-[#c13449] text-white px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-2xl font-semibold hover:from-[#8f1f2f] hover:to-[#aa2939] transition-all duration-300 transform hover:scale-105 shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl flex items-center space-x-2 sm:space-x-3 justify-center w-full sm:w-auto">
+          <button onClick={handleLiveShoppingClick} className="group bg-gradient-to-r from-[#aa2939] to-[#c13449] text-white px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-2xl font-semibold hover:from-[#8f1f2f] hover:to-[#aa2939] transition-all duration-300 transform hover:scale-105 shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl flex items-center space-x-2 sm:space-x-3 justify-center w-full sm:w-auto">
             <Video className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
             <span className="text-sm sm:text-base md:text-lg lg:text-xl">Book Live Shopping Session</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
           </button>
           
-          <button className="group bg-white border-2 border-gray-200 text-gray-800 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-2xl font-semibold hover:border-[#09341c] hover:bg-[#09341c] hover:bg-opacity-5 transition-all duration-300 transform hover:scale-105 shadow-md sm:shadow-lg hover:shadow-lg sm:hover:shadow-xl flex items-center space-x-2 sm:space-x-3 justify-center w-full sm:w-auto">
+          <Link to="/collections" className="group bg-white border-2 border-gray-200 text-gray-800 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 rounded-xl sm:rounded-2xl font-semibold hover:border-[#09341c] hover:bg-[#09341c] hover:bg-opacity-5 transition-all duration-300 transform hover:scale-105 shadow-md sm:shadow-lg hover:shadow-lg sm:hover:shadow-xl flex items-center space-x-2 sm:space-x-3 justify-center w-full sm:w-auto">
             <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
             <span className="text-sm sm:text-base md:text-lg lg:text-xl">Start Personal Shopping</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
-          </button>
+          </Link>
         </div>
 
         {/* Bottom decorative line to transition to footer */}

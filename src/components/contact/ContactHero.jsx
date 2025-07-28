@@ -203,7 +203,7 @@ export default function ContactHero() {
                 {/* Main image */}
                 <div className="rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl h-full lg:h-auto">
                   <img 
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" 
+                    src="/src/data/images/Image_fx (4).jpg" 
                     alt="Tailoring workshop with traditional and modern elements" 
                     className="w-full h-full lg:h-80 xl:h-96 object-cover hover:scale-105 transition-transform duration-700"
                   />

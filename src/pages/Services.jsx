@@ -3,6 +3,7 @@ import React from 'react';
 // Import all service components
 import ServiceCategories from '../components/services/ServiceCategories';
 import ServicesHero from '../components/services/ServicesHero';
+import CTASection from "../components/about/CTASection"
 
 const Services = () => {
   return (
@@ -12,7 +13,8 @@ const Services = () => {
       
       {/* Service Categories */}
       <ServiceCategories />
-
+      <CTASection />
+      
     </div>
   );
 };
