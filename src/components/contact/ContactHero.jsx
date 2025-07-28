@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaClock, FaHandshake } from "react-icons/fa";
 import { GiSewingNeedle } from "react-icons/gi";
+import contactImage from "../../data/images/Image_fx (4).jpg";
 
 export default function ContactHero() {
   useEffect(() => {
@@ -203,7 +204,7 @@ export default function ContactHero() {
                 {/* Main image */}
                 <div className="rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl h-full lg:h-auto">
                   <img 
-                    src="/src/data/images/Image_fx (4).jpg" 
+                    src={contactImage} 
                     alt="Tailoring workshop with traditional and modern elements" 
                     className="w-full h-full lg:h-80 xl:h-96 object-cover hover:scale-105 transition-transform duration-700"
                   />
