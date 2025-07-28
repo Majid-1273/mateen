@@ -2,46 +2,57 @@ import { useEffect, useState } from "react";
 import { FaArrowRight, FaStar, FaChevronLeft, FaChevronRight, FaVideo, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// Import all images
+import imageFx from "../../data/images/Image_fx.jpg";
+import imageFx1 from "../../data/images/Image_fx (1).jpg";
+import imageFx3 from "../../data/images/Image_fx (3).jpg";
+import imageFx4 from "../../data/images/Image_fx (4).jpg";
+import imageFx5 from "../../data/images/Image_fx (5).jpg";
+import imageFx6 from "../../data/images/Image_fx (6).jpg";
+import imageFx7 from "../../data/images/Image_fx (7).jpg";
+import imageFx8 from "../../data/images/Image_fx (8).jpg";
+import imageFx10 from "../../data/images/Image_fx (10).jpg";
+
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Carousel images data - using local images from data/images folder
+  // Carousel images data - using imported images
   const carouselImages = [
     {
-      main: "/src/data/images/Image_fx.jpg",
-      fallback: "/src/data/images/Image_fx (1).jpg",
+      main: imageFx,
+      fallback: imageFx1,
       alt: "Master textile artisan at work",
-      pakistaniOverlay: "/src/data/images/Image_fx (3).jpg",
-      pakistaniFallback: "/src/data/images/Image_fx (4).jpg",
-      englishOverlay: "/src/data/images/Image_fx (5).jpg",
-      englishFallback: "/src/data/images/Image_fx (6).jpg"
+      pakistaniOverlay: imageFx3,
+      pakistaniFallback: imageFx4,
+      englishOverlay: imageFx5,
+      englishFallback: imageFx6
     },
     {
-      main: "/src/data/images/Image_fx (7).jpg",
-      fallback: "/src/data/images/Image_fx (6).jpg",
+      main: imageFx7,
+      fallback: imageFx6,
       alt: "Traditional textile craftsmanship",
-      pakistaniOverlay: "/src/data/images/Image_fx (3).jpg",
-      pakistaniFallback: "/src/data/images/Image_fx (4).jpg",
-      englishOverlay: "/src/data/images/Image_fx (5).jpg",
-      englishFallback: "/src/data/images/Image_fx (6).jpg"
+      pakistaniOverlay: imageFx3,
+      pakistaniFallback: imageFx4,
+      englishOverlay: imageFx5,
+      englishFallback: imageFx6
     },
     {
-      main: "/src/data/images/Image_fx (3).jpg",
-      fallback: "/src/data/images/Image_fx (4).jpg",
+      main: imageFx3,
+      fallback: imageFx4,
       alt: "Artisan textile work",
-      pakistaniOverlay: "/src/data/images/Image_fx (5).jpg",
-      pakistaniFallback: "/src/data/images/Image_fx (6).jpg",
-      englishOverlay: "/src/data/images/Image_fx (7).jpg",
-      englishFallback: "/src/data/images/Image_fx (8).jpg"
+      pakistaniOverlay: imageFx5,
+      pakistaniFallback: imageFx6,
+      englishOverlay: imageFx7,
+      englishFallback: imageFx8
     },
     {
-      main: "/src/data/images/Image_fx (5).jpg",
-      fallback: "/src/data/images/Image_fx (6).jpg",
+      main: imageFx5,
+      fallback: imageFx6,
       alt: "Traditional craftsmanship",
-      pakistaniOverlay: "/src/data/images/Image_fx (7).jpg",
-      pakistaniFallback: "/src/data/images/Image_fx (8).jpg",
-      englishOverlay: "/src/data/images/Image_fx (9).jpg",
-      englishFallback: "/src/data/images/Image_fx (10).jpg"
+      pakistaniOverlay: imageFx7,
+      pakistaniFallback: imageFx8,
+      englishOverlay: imageFx8,
+      englishFallback: imageFx10
     }
   ];
 

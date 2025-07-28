@@ -2,6 +2,16 @@ import { useState, useEffect } from "react";
 import { ChevronRight, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Import local images
+import fashionImage1 from "../../data/images/a-dramatic-studio-portrait-showcases-a-s_B1sQ_mxlR-arr2TNoH3rSw_tH_wW2HCRzu0TCp_8_R21w.jpeg";
+import fashionImage2 from "../../data/images/a-photograph-of-an-unstitched-pakistani-_zdqjyO8lQHato_5pIT3F3g_pb18A4V4RIeEp05L8JAu-g.jpeg";
+import footwearImage1 from "../../data/images/a-close-up-product-photograph-of-a-pair-_0Gl4PXuhQLSfur6F3Hgn5g_3WeCpK5BTEKgVVyReLIAaQ.jpeg";
+import footwearImage2 from "../../data/images/a-product-photograph-showcasing-a-pair-o_Y7TrWplXS3m03LaHK0ixXw_0ZTMDyryQnmzXTjBuQj4EQ.jpeg";
+import accessoriesImage1 from "../../data/images/a-photograph-of-a-curated-collection-of-_g3beQ3w4TpW683_-NuLfSA_LVc__P8xSZaFpRDNJus9HQ.jpeg";
+import accessoriesImage2 from "../../data/images/a-photograph-of-an-elegant-pakistani-clu_lsJAK0MNSh6W2kHZ-rtHFw_YusQsYfcSz2b2Gkhfvm7tg.jpeg";
+import homeImage1 from "../../data/images/a-photograph-of-a-meticulously-curated-c_ZYCnGiHARwaCb2LdVlOtXw_LVc__P8xSZaFpRDNJus9HQ.jpeg";
+import homeImage2 from "../../data/images/a-close-up-photograph-of-a-luxurious-pak_1pP4RmkKQrGBt505j95PaA_fqj7vHsWT5irb8grv8sjdg.jpeg";
+
 export default function Collections() {
   const [activeCollection, setActiveCollection] = useState("fashion-apparel");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -10,60 +20,60 @@ export default function Collections() {
     "fashion-apparel": {
       title: "Fashion & Apparel",
       description: "From formal wear to festive styles — discover Pakistan's finest stitched and unstitched clothing, tailored for every occasion.",
-      image: "/src/data/images/a-dramatic-studio-portrait-showcases-a-s_B1sQ_mxlR-arr2TNoH3rSw_tH_wW2HCRzu0TCp_8_R21w.jpeg",
+      image: fashionImage1,
       items: [
         { 
           name: "Luxury Lawn Suit", 
-          image: "/src/data/images/a-dramatic-studio-portrait-showcases-a-s_B1sQ_mxlR-arr2TNoH3rSw_tH_wW2HCRzu0TCp_8_R21w.jpeg"
+          image: fashionImage1
         },
         { 
           name: "Festive Bridal Wear", 
-          image: "/src/data/images/a-photograph-of-an-unstitched-pakistani-_zdqjyO8lQHato_5pIT3F3g_pb18A4V4RIeEp05L8JAu-g.jpeg"
+          image: fashionImage2
         }
       ]
     },
     "footwear": {
       title: "Footwear",
       description: "From traditional khussas to premium leather shoes — step into comfort and style rooted in Pakistani craftsmanship.",
-      image: "/src/data/images/a-close-up-product-photograph-of-a-pair-_0Gl4PXuhQLSfur6F3Hgn5g_3WeCpK5BTEKgVVyReLIAaQ.jpeg",
+      image: footwearImage1,
       items: [
         { 
           name: "Classic Khussa", 
-          image: "/src/data/images/a-product-photograph-showcasing-a-pair-o_Y7TrWplXS3m03LaHK0ixXw_0ZTMDyryQnmzXTjBuQj4EQ.jpeg" 
+          image: footwearImage2
         },
         { 
           name: "Leather Loafers", 
-          image: "/src/data/images/a-photograph-of-a-carefully-curated-coll_KukkkcGnRwalfj3-fx-_CA_bR1Io50cSfKkwgr88K37eA.jpeg" 
+          image: footwearImage1
         }
       ]
     },
     "accessories": {
       title: "Accessories",
       description: "Complete your look with handcrafted Pakistani accessories — from shawls to bags and statement jewelry.",
-      image: "/src/data/images/a-photograph-of-a-curated-collection-of-_g3beQ3w4TpW683_-NuLfSA_LVc__P8xSZaFpRDNJus9HQ.jpeg",
+      image: accessoriesImage1,
       items: [
         { 
           name: "Pashmina Shawl", 
-          image: "/src/data/images/a-photograph-of-a-curated-collection-of-_g3beQ3w4TpW683_-NuLfSA_LVc__P8xSZaFpRDNJus9HQ.jpeg" 
+          image: accessoriesImage1
         },
         { 
           name: "Embroidered Clutch", 
-          image: "/src/data/images/a-photograph-of-an-elegant-pakistani-clu_lsJAK0MNSh6W2kHZ-rtHFw_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
+          image: accessoriesImage2
         }
       ]
     },
     "home-living": {
       title: "Home & Living",
       description: "Bring Pakistani artistry into your space — explore textiles, décor, and handmade pieces for every corner of your home.",
-      image: "/src/data/images/a-photograph-of-a-meticulously-curated-c_ZYCnGiHARwaCb2LdVlOtXw_LVc__P8xSZaFpRDNJus9HQ.jpeg",
+      image: homeImage1,
       items: [
         { 
           name: "Block Print Cushion", 
-          image: "/src/data/images/a-photograph-of-a-meticulously-curated-c_ZYCnGiHARwaCb2LdVlOtXw_LVc__P8xSZaFpRDNJus9HQ.jpeg" 
+          image: homeImage1
         },
         { 
           name: "Brass Wall Decor", 
-          image: "/src/data/images/a-close-up-photograph-of-a-luxurious-pak_1pP4RmkKQrGBt505j95PaA_fqj7vHsWT5irb8grv8sjdg.jpeg" 
+          image: homeImage2
         }
       ]
     }

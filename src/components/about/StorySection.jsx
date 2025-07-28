@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Sparkles, Video, ShoppingBag, Globe, Clock, Users, Star, ArrowRight, Calendar, Package, Truck, CheckCircle } from 'lucide-react';
+import storyImage from '../../data/images/Image_fx (10).jpg';
 
 // Story Section Component
 const StorySection = () => {
@@ -49,7 +50,7 @@ const StorySection = () => {
             >
               <div className="relative overflow-hidden rounded-xl mb-6">
                 <img 
-                  src="/src/data/images/Image_fx (10).jpg" 
+                  src={storyImage} 
                   alt="Traditional Pakistani fashion" 
                   className="w-full h-48 sm:h-56 md:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
                 />
