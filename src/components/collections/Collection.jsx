@@ -6,32 +6,32 @@ const brands = {
   "Fashion & Apparel": {
     men: [
       { name: "Gul Ahmed", logo: "👔", website: "https://www.gulahmedshop.com/mens-clothes", specialty: "Premium Pakistani Fashion" },
-      { name: "Bonanza Satrangi", logo: "👨", website: "https://bonanzasatrangi.com/collections/men", specialty: "Contemporary Fashion" },
-      { name: "Alkaram Studio", logo: "🎽", website: "https://www.alkaramstudio.com/collections/man", specialty: "Traditional Wear" }
+      { name: "Bonanza Satrangi", logo: "🎩", website: "https://bonanzasatrangi.com/collections/men", specialty: "Contemporary Fashion" },
+      { name: "Alkaram Studio", logo: "🧥", website: "https://www.alkaramstudio.com/collections/man", specialty: "Traditional Wear" }
     ],
     women: [
-      { name: "Gul Ahmed", logo: "🌸", website: "https://www.gulahmedshop.com/women", specialty: "Premium Pakistani Fashion" },
-      { name: "Alkaram Studio", logo: "👚", website: "https://www.alkaramstudio.com/", specialty: "Traditional Wear" },
-      { name: "Nishat Linen", logo: "🌺", website: "https://nishatlinen.com/collections/women", specialty: "Linen Collection" }
+      { name: "Gul Ahmed", logo: "👗", website: "https://www.gulahmedshop.com/women", specialty: "Premium Pakistani Fashion" },
+      { name: "Alkaram Studio", logo: "👘", website: "https://www.alkaramstudio.com/", specialty: "Traditional Wear" },
+      { name: "Nishat Linen", logo: "👚", website: "https://nishatlinen.com/collections/women", specialty: "Linen Collection" }
     ],
     children: [
-      { name: "Gul Ahmed Kids", logo: "🧸", website: "https://www.gulahmedshop.com/kids", specialty: "Kids Fashion" }
+      { name: "Gul Ahmed Kids", logo: "👕", website: "https://www.gulahmedshop.com/kids", specialty: "Kids Fashion" }
     ]
   },
   "Footwear": {
     men: [
       { name: "Servis", logo: "👞", website: "https://servis.pk/collections/men-shoes-sale", specialty: "Quality Footwear" },
-      { name: "Bata", logo: "🥿", website: "https://www.bata.com.pk/collections/men-collection", specialty: "Comfortable Shoes" },
+      { name: "Bata", logo: "🥾", website: "https://www.bata.com.pk/collections/men-collection", specialty: "Comfortable Shoes" },
       { name: "Hush Puppies", logo: "👟", website: "https://www.hushpuppies.com.pk/collections/men-collections-all", specialty: "Casual Footwear" }
     ],
     women: [
       { name: "Servis", logo: "👠", website: "https://servis.pk/collections/women", specialty: "Quality Footwear" },
       { name: "Bata", logo: "👡", website: "https://www.bata.com.pk/collections/women-collection", specialty: "Comfortable Shoes" },
-      { name: "Hush Puppies", logo: "🩰", website: "https://www.hushpuppies.com.pk/collections/women-all", specialty: "Fashion Footwear" }
+      { name: "Hush Puppies", logo: "🥿", website: "https://www.hushpuppies.com.pk/collections/women-all", specialty: "Fashion Footwear" }
     ],
     children: [
       { name: "Bata Kids", logo: "👟", website: "https://www.bata.com.pk/collections/kids-new-1", specialty: "Kids Shoes" },
-      { name: "Servis Kids", logo: "👶", website: "https://servis.pk/collections/kids-1", specialty: "Quality Kids Footwear" }
+      { name: "Servis Kids", logo: "👟", website: "https://servis.pk/collections/kids-1", specialty: "Quality Kids Footwear" }
     ]
   },
   "Accessories": {
@@ -144,8 +144,10 @@ const Collection = () => {
               className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 cursor-pointer border-2 border-transparent hover:border-[#aa2939]/20 hover:bg-gradient-to-br hover:from-white hover:to-[#edefee]/50 w-full sm:w-60 md:w-64 lg:w-72 xl:w-80 flex-shrink-0"
             >
               <div className="text-center">
-                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 sm:mb-5 md:mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {brand.logo}
+                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 mx-auto mb-4 sm:mb-5 md:mb-6 border border-black rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg bg-white">
+                  <span className="text-[#aa2939] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                    {brand.logo}
+                  </span>
                 </div>
                 <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 sm:mb-5 md:mb-6 group-hover:text-[#09341c] transition-colors duration-300 leading-tight">
                   {brand.name}
