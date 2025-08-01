@@ -7,8 +7,7 @@ export default function ContactForm() {
     email: "",
     phone: "",
     subject: "",
-    message: "",
-    preferredLocation: "any"
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -32,6 +31,68 @@ export default function ContactForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const formatEmailBody = () => {
+    return `${formData.message}
+
+---
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}`;
+  };
+
+  const formatWhatsAppMessage = () => {
+    return `*Contact Information*
+• *Name:* ${formData.name}
+• *Email:* ${formData.email}
+• *Phone:* ${formData.phone || 'Not provided'}
+
+*Subject:* ${formData.subject}
+
+*Message:*
+${formData.message}
+
+*Email:* ${formData.email}
+*Phone:* ${formData.phone || 'Not provided'}`;
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    const emailBody = formatEmailBody();
+    const mailtoLink = `mailto:mateen.chma@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    window.open(mailtoLink, '_blank');
+    
+    // Show success message
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+    }, 5000);
+  };
+
+  const handleWhatsAppSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    const whatsappMessage = formatWhatsAppMessage();
+    const whatsappLink = `https://wa.me/923214660662?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    window.open(whatsappLink, '_blank');
+    
+    // Show success message
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+    }, 5000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -44,8 +105,7 @@ export default function ContactForm() {
         email: "",
         phone: "",
         subject: "",
-        message: "",
-        preferredLocation: "any"
+        message: ""
       });
       
       setTimeout(() => {
@@ -216,7 +276,7 @@ export default function ContactForm() {
                       <div className="border-l-4 p-3 sm:p-4 mb-4 sm:mb-6 rounded-r-lg" style={{ borderLeftColor: '#09341c', backgroundColor: '#f0f8f0' }}>
                         <p style={{ color: '#09341c' }} className="font-semibold flex items-center text-sm sm:text-base">
                           <MessageSquare className="h-4 w-4 sm:h-5 w-5 mr-2 flex-shrink-0" />
-                          Thank you for your message! Our team will get back to you soon.
+                          Message prepared! Your email client or WhatsApp should open with the form data.
                         </p>
                       </div>
                     )}
@@ -285,22 +345,7 @@ export default function ContactForm() {
                         </div>
                       </div>
                       
-                      {/* Location Preference */}
-                      <div>
-                        <label className="block font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: '#aa2939' }}>
-                          Preferred Office Location
-                        </label>
-                        <select
-                          name="preferredLocation"
-                          value={formData.preferredLocation}
-                          onChange={handleChange}
-                          className="input-field w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm sm:text-base"
-                        >
-                          <option value="any">No preference</option>
-                          <option value="london">🇬🇧 London Office</option>
-                          <option value="lahore">🇵🇰 Lahore Workshop</option>
-                        </select>
-                      </div>
+
                       
                       {/* Message */}
                       <div>
@@ -318,25 +363,28 @@ export default function ContactForm() {
                         ></textarea>
                       </div>
                       
-                      {/* Submit Button */}
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        onClick={handleSubmit}
-                        className="btn-primary w-full px-4 sm:px-6 py-3 sm:py-4 text-white font-bold rounded-lg flex items-center justify-center text-sm sm:text-base"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="animate-spin mr-2 sm:mr-3 h-4 w-4 sm:h-5 w-5" />
-                            Sending Message...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 w-5" />
-                            Send Your Message
-                          </>
-                        )}
-                      </button>
+                      {/* Submit Buttons */}
+                      <div className="text-center mb-4">
+                        <p className="text-sm text-gray-600 mb-2">Choose how you'd like to send your message:</p>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <button
+                          type="button"
+                          onClick={handleEmailSubmit}
+                          className="btn-primary w-full px-4 sm:px-6 py-3 sm:py-4 text-white font-bold rounded-lg flex items-center justify-center text-sm sm:text-base"
+                        >
+                          <Mail className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 w-5" />
+                          Send via Email
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleWhatsAppSubmit}
+                          className="btn-primary w-full px-4 sm:px-6 py-3 sm:py-4 text-white font-bold rounded-lg flex items-center justify-center text-sm sm:text-base"
+                        >
+                          <MessageSquare className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 w-5" />
+                          Send via WhatsApp
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
