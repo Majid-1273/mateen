@@ -10,21 +10,21 @@ export default function Testimonials() {
       position: "CEO, London Fashion House",
       location: "London, England",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      text: "The quality of craftsmanship from Samundar Paar is unmatched. Their ability to blend English tailoring with Pakistani artisanal touches has made our collaboration incredibly successful. Every piece tells a story of cultural heritage and contemporary design."
+      text: "The quality of craftsmanship from Samandar Paar is unmatched. Their ability to blend English tailoring with Pakistani artisanal touches has made our collaboration incredibly successful. Every piece tells a story of cultural heritage and contemporary design."
     },
     {
       name: "Fatima Ahmed",
       position: "Fashion Designer",
       location: "Lahore, Pakistan",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b9bc?w=400&h=400&fit=crop&crop=face",
-      text: "Working with Samundar Paar has been a revelation. Their attention to detail and respect for traditional Pakistani textile techniques while incorporating modern English sensibilities creates truly unique pieces that stand out in the global market."
+      text: "Working with Samandar Paar has been a revelation. Their attention to detail and respect for traditional Pakistani textile techniques while incorporating modern English sensibilities creates truly unique pieces that stand out in the global market."
     },
     {
       name: "Elizabeth Roberts",
       position: "Textile Curator",
       location: "Manchester, England",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-      text: "I've been impressed by how Samundar Paar preserves authentic techniques from both countries while creating something fresh and contemporary. Their fabrics and garments represent the best of cross-cultural craftsmanship."
+      text: "I've been impressed by how Samandar Paar preserves authentic techniques from both countries while creating something fresh and contemporary. Their fabrics and garments represent the best of cross-cultural craftsmanship."
     },
     {
       name: "Hassan Malik",

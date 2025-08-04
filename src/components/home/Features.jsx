@@ -63,7 +63,7 @@ export default function Features() {
             <div className="h-0.5 sm:h-1 w-6 sm:w-8 md:w-12 lg:w-16 bg-gradient-to-r from-[#09341c] to-[#aa2939] mr-2 sm:mr-3 md:mr-4"></div>
             <span className="text-lg sm:text-xl md:text-2xl">🌙</span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#09341c] via-[#aa2939] to-[#09341c] bg-clip-text text-transparent mx-2 sm:mx-3 md:mx-4 px-1 text-center">
-              Why Choose SAMUNDAR PAAR
+              Why Choose SAMANDAR PAAR
             </h2>
             <span className="text-lg sm:text-xl md:text-2xl">👑</span>
             <div className="h-0.5 sm:h-1 w-6 sm:w-8 md:w-12 lg:w-16 bg-gradient-to-r from-[#aa2939] to-[#09341c] ml-2 sm:ml-3 md:ml-4"></div>

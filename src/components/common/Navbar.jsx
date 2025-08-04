@@ -35,14 +35,14 @@ export default function Navbar() {
                 <div className="absolute inset-0 rounded-full flex items-center justify-center overflow-hidden">
                   <img 
                     src={logoImage} 
-                    alt="Samundar Paar Logo" 
+                    alt="Samandar Paar Logo" 
                     className="w-40 h-40 object-contain"
                   />
                 </div>
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold bg-gradient-to-r from-green-800 via-red-700 to-green-800 bg-clip-text text-transparent group-hover:from-red-700 group-hover:via-green-800 group-hover:to-red-700 transition-all duration-300">
-                  SAMUNDAR PAAR
+                  SAMANDAR PAAR
                 </span>
                 <span className="text-xs text-gray-600 font-medium">Pakistan ↔ England</span>
               </div>

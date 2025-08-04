@@ -77,7 +77,7 @@ export default function Footer() {
               </div>
               <div className="ml-3 sm:ml-4 min-w-0">
                 <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-[#aa2939] to-[#09341c] bg-clip-text text-transparent block">
-                  SAMUNDAR PAAR
+                  SAMANDAR PAAR
                 </span>
                 <p className="text-sm sm:text-base text-[#edefee]/80 font-medium">
                   Pakistan ↔ England
@@ -165,7 +165,7 @@ export default function Footer() {
         <div className="border-t border-[#edefee]/20 mt-8 sm:mt-10 md:mt-12 lg:mt-16 pt-6 sm:pt-8 md:pt-10 lg:pt-12">
           <div className="flex flex-col items-center text-center space-y-4 sm:space-y-5">
             <div className="flex flex-col sm:flex-row items-center text-center sm:text-left">
-              <p className="text-[#edefee]/80 text-sm sm:text-base">© 2025 Samundar Paar. Crafted with</p>
+              <p className="text-[#edefee]/80 text-sm sm:text-base">© 2025 Samandar Paar. Crafted with</p>
               <span className="mx-2 sm:mx-3 text-[#aa2939] animate-pulse text-lg">♥</span>
               <p className="text-[#edefee]/80 text-sm sm:text-base">across two nations.</p>
             </div>

@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
     {
       name: "Zara Ahmed",
       location: "Birmingham",
-      text: "I've been using Samundar Paar for over a year now. The team is so professional and they really care about getting every detail right.",
+      text: "I've been using Samandar Paar for over a year now. The team is so professional and they really care about getting every detail right.",
       rating: 5
     }
   ];

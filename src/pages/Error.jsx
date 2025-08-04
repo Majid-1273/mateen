@@ -25,7 +25,7 @@ export default function Error() {
         <div className="mb-6 flex flex-col items-center" data-aos="fade-down">
           <div className="flex items-center mb-3">
             <GiSewingNeedle className="h-8 w-8 text-emerald-600" />
-            <span className="ml-2 text-lg font-bold">SAMUNDAR PAAR</span>
+            <span className="ml-2 text-lg font-bold">SAMANDAR PAAR</span>
           </div>
           <FaExclamationTriangle className="h-16 w-16 text-red-500" />
         </div>

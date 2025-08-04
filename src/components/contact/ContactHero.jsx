@@ -211,31 +211,7 @@ export default function ContactHero() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent"></div>
                 </div>
                 
-                {/* Floating decorative elements - Only visible on larger screens */}
-                <div 
-                  className="hidden lg:block absolute -bottom-4 -left-4 w-12 h-12 xl:w-16 xl:h-16 rounded-full flex items-center justify-center shadow-xl floating-element bg-gradient-to-br from-[#aa2939] to-[#c13449]"
-                  data-aos="zoom-in"
-                  data-aos-delay="400"
-                >
-                  <img 
-                    src="/src/data/images/a-photograph-of-an-elegant-pakistani-clu_lsJAK0MNSh6W2kHZ-rtHFw_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
-                    alt="Pakistani Fashion" 
-                    className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
-                  />
-                </div>
                 
-                <div 
-                  className="hidden lg:block absolute -top-4 -right-4 w-12 h-12 xl:w-16 xl:h-16 rounded-full flex items-center justify-center shadow-xl floating-element bg-gradient-to-br from-[#09341c] to-[#0d4422]"
-                  style={{ animationDelay: '2s' }}
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                >
-                  <img 
-                    src="/src/data/images/elegant-pakistani-embroidered-clutch-pur_gajoixDDTw6POYY_lQT-tg_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
-                    alt="Pakistani Embroidery" 
-                    className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
-                  />
-                </div>
 
                 
 
