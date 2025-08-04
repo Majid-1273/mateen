@@ -83,7 +83,7 @@ export default function Newsletter() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-red-100 via-white to-red-100 bg-clip-text text-transparent">
-                SAMUNDAR PAAR
+                SAMANDAR PAAR
               </span>
               <br />
               <span className="bg-gradient-to-r from-green-100 via-white to-green-100 bg-clip-text text-transparent">
@@ -139,7 +139,7 @@ export default function Newsletter() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white">Shukriya! Thank you!</h3>
-                    <p className="text-green-100">Welcome to the SAMUNDAR PAAR community</p>
+                    <p className="text-green-100">Welcome to the SAMANDAR PAAR community</p>
                   </div>
                 </div>
               </div>
