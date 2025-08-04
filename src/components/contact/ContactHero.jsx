@@ -218,8 +218,8 @@ export default function ContactHero() {
                   data-aos-delay="400"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=30&h=20&fit=crop&crop=center" 
-                    alt="UK" 
+                    src="/src/data/images/a-photograph-of-an-elegant-pakistani-clu_lsJAK0MNSh6W2kHZ-rtHFw_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
+                    alt="Pakistani Fashion" 
                     className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
                   />
                 </div>
@@ -231,38 +231,15 @@ export default function ContactHero() {
                   data-aos-delay="500"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=30&h=20&fit=crop&crop=center" 
-                    alt="PK" 
+                    src="/src/data/images/elegant-pakistani-embroidered-clutch-pur_gajoixDDTw6POYY_lQT-tg_YusQsYfcSz2b2Gkhfvm7tg.jpeg" 
+                    alt="Pakistani Embroidery" 
                     className="w-5 h-3 xl:w-6 xl:h-4 object-cover rounded"
                   />
                 </div>
 
-                {/* Additional decorative images - Hidden on mobile for space */}
-                <div 
-                  className="hidden md:block absolute top-3 left-3 w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#edefee] floating-element"
-                  style={{ animationDelay: '1s' }}
-                  data-aos="fade-in"
-                  data-aos-delay="600"
-                >
-                  <img 
-                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=60&h=60&fit=crop&crop=center" 
-                    alt="Traditional textile pattern" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
 
-                <div 
-                  className="hidden md:block absolute bottom-3 right-3 w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#edefee] floating-element"
-                  style={{ animationDelay: '3s' }}
-                  data-aos="fade-in"
-                  data-aos-delay="700"
-                >
-                  <img 
-                    src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5a?w=60&h=60&fit=crop&crop=center" 
-                    alt="Modern sewing tools" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
               </div>
             </div>
           </div>
