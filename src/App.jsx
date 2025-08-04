@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import './App.css';
 import Home from "./pages/Home";
 // import Blog from "./pages/Blog";
@@ -11,10 +12,22 @@ import Footer from "./components/common/Footer";
 import Collections from "./pages/Collections";
 import FloatingContactButtons from "./components/common/FloatingContactButtons";
 
+// ScrollToTop component to handle scrolling on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
-    <Navbar/>
+      <ScrollToTop />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/blog" element={<Blog />} /> */}
@@ -25,7 +38,7 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
       <FloatingContactButtons />
-    <Footer/>
+      <Footer/>
     </BrowserRouter>
   );
 }
