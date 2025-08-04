@@ -15,7 +15,7 @@ const WhatsAppIcon = ({ className }) => (
 export default function FloatingContactButtons() {
   const handleWhatsAppClick = () => {
     // WhatsApp number with country code (without + sign)
-    const phoneNumber = '923321466062';
+    const phoneNumber = '923214660662';
     const message = 'Hello! I would like to get in touch.';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
